@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Play & Learn</title>
+        <link rel="stylesheet" href="style4.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
+    </head>
+
+<body>
+
+    <header id="header-top">
+
+        <nav class="nav_links">
+            <img class="logo" src="pl_logo.png" alt="logo">
+            <div class="logo_details">
+                <h1>PLAY & LEARN</h1>
+                <h6>Have Fun While Learning</h6>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Fun Fact</a></li>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Quiz</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+            </ul>
+
+            <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+        </nav>
+
+    </header>
+
+    <div class="wrapper">
+        <section class="chat-area">
+            <header>
+                <a href="#" class="black-icon"><i class="fas fa-arrow-left"></i></a>
+                <img src="#" alt="">
+                <div class="details">
+                    <span>Coding Nepal</span>
+                    <p>Activie now</p>
+                </div>
+            </header>
+            <div class="chat-box">
+                <div class="chat outgoing">
+                    <div class="details">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia fuga quidem, corrupti,
+                            vero, at nesciunt inventore nam unde dolor perspiciatis a voluptate quos dolorem assumenda
+                            aliquam doloremque libero? Aperiam, voluptatem.</p>
+                    </div>
+                </div>
+                <div class="chat incoming">
+                    <img src="#" alt="">
+                    <div class="details">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia fuga quidem, corrupti,
+                            vero, at nesciunt inventore nam unde dolor perspiciatis a voluptate quos dolorem assumenda
+                            aliquam doloremque libero? Aperiam, voluptatem.</p>
+                    </div>
+                </div>
+            </div>
+            <form action="#" class="typing-area">
+                <input type="text" placeholder="Type a message here...">
+                <button><i class="fab fa-telegram-plane"></i></button>
+            </form>
+        </section>
+    </div>
+</body>
+
+<script type="text/javascript">
+    window.addEventListener("scroll", function () {
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+    })
+</script>
+
+<script>
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
+
+    function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+    }
+
+    function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+    }
+</script>
+
+</html>
