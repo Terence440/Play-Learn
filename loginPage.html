@@ -6,33 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play & Learn</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="assets/css/loginPage.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-
-        <nav class="nav_links">
-            <img class="logo" src="pl_logo.png" alt="logo">
-            <div class="logo_details">
-                <h1>PLAY & LEARN</h1>
-                <h6>Have Fun While Learning</h6>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Fun Fact</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">Quiz</a></li>
-                <li><a href="contact_us.html">Contact Us</a></li>
+    <div id="wrapper_Header">
+        <nav>
+          <input type="checkbox" id="show-search">
+          <input type="checkbox" id="show-menu">
+          <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+          <div class="content">
+            <div class="logo"></div>
+            <a href="index.html">
+              <img id="logo" src="logo_white.png" alt="logo">
+            </a>
+            <ul class="links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li>
+                <a href="#" class="desktop-link">Features</a>
+                <input type="checkbox" id="show-features">
+                <label for="show-features">Features</label>
+                <ul>
+                  <li><a href="#">Drop Menu 1</a></li>
+                  <li><a href="#">Drop Menu 2</a></li>
+                  <li><a href="#">Drop Menu 3</a></li>
+                  <li><a href="#">Drop Menu 4</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="desktop-link">Services</a>
+                <input type="checkbox" id="show-services">
+                <label for="show-services">Services</label>
+                <ul>
+                  <li><a href="#">Drop Menu 1</a></li>
+                  <li><a href="#">Drop Menu 2</a></li>
+                  <li><a href="#">Drop Menu 3</a></li>
+                  <li>
+                    <a href="#" class="desktop-link">More Items</a>
+                    <input type="checkbox" id="show-items">
+                    <label for="show-items">More Items</label>
+                    <ul>
+                      <li><a href="#">Sub Menu 1</a></li>
+                      <li><a href="#">Sub Menu 2</a></li>
+                      <li><a href="#">Sub Menu 3</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#">Feedback</a></li>
             </ul>
-
-            <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+          </div>
+          <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
         </nav>
-
-    </header>
+      </div>
 
     <section class="hero">
         <div class="form-box">
@@ -65,8 +99,8 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-        <div class="container">
-            <div class="row">
+        <div class="container_footer">
+            <div class="row_footer">
                 <div class="footer-col">
                     <h4>company</h4>
                     <ul>
@@ -108,7 +142,7 @@
             </div>
 
         </div>
-            <p class="copyright">Copyright © 2021. All Right Reserved</p>
+        <p class="copyright">Copyright © 2021. All Right Reserved</p>
     </footer>
     <!-- ======= Footer ======= -->
 
@@ -128,13 +162,13 @@
 
     function register() {
         x.style.left = "-400px";
-        y.style.left = "50px";
-        z.style.left = "110px";
+        y.style.left = "100px";
+        z.style.left = "164px";
     }
 
     function login() {
-        x.style.left = "50px";
-        y.style.left = "450px";
+        x.style.left = "100px";
+        y.style.left = "850px";
         z.style.left = "0px";
     }
 </script>
