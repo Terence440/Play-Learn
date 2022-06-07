@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#content_Home{
+    padding: 70px 0 0 0;
+    overflow-y: hidden;
+}
+
+#content_Home .container_Home{
+    overflow: hidden;
+    width: 100%;
+    height: 80vh;
+    padding-top: 72px;
+}
+
+#content_Home h1{
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+}
+
+#content_Home .row_Home{
+    align-items: center;
+    left: 0%;
+}
+
+#content_Home img{
+    display: block;
+    margin: 20px auto;
+    width: 60%;
+    height: 70vh;
+}
+
+#content_Function .row_Function{
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#content_Function .col_Function{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content_Function .col_Function img{
+    height: 50%;
+    width: 50%;
+}
+
+#content_Function h4{
+    font-size: 3vmin;
+    color: black;
+    margin: 20px autp;
+}
+
+#content_Function p{
+    text-align: center;
+    color: black;
+    padding: 0 40px;
+}
+
+#content_Function a{
+    color: black;
+}
+
+#content_Function .btn_LearnMore{
+    text-decoration: none;
+    padding: 9px 25px;
+    background-color: #eb0565;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin: 10px 0;
+}
+
+#content_Function .btn_LearnMore:hover{
+    background-color: #fc036b;
+}
+

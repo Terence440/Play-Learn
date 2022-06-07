@@ -14,13 +14,12 @@
 
 <body>
     <header>
-
         <nav class="nav_links">
-            <img class="logo" src="pl_logo.png" alt="logo">
-            <div class="logo_details">
-                <h1>PLAY & LEARN</h1>
-                <h6>Have Fun While Learning</h6>
-            </div>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <img class="logo" src="logo_white.png" alt="logo">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Fun Fact</a></li>
@@ -31,12 +30,11 @@
 
             <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
         </nav>
-
     </header>
 
     <section style="background: rgb(25, 24, 24);">
         <div>
-            <h1 style="text-align: center; padding: 20px 0px 0px 0px; font-size: 40px;color: whitesmoke;">OFFICIAL PLAY
+            <h1 style="text-align: center; font-size: 40px;color: whitesmoke;">OFFICIAL PLAY
                 & LEARN SITE</h1>
         </div>
 
@@ -84,54 +82,6 @@
                         limited sense is found in applications as diverse as medical diagnosis, computer search engines,
                         and voice or handwriting recognition.
                     </p>
-                    <!-- <br>
-                    <p>
-                        Artificial intelligence (AI), the ability of a digital computer or computer-controlled robot to
-                        perform tasks commonly associated with intelligent beings. The term is frequently applied to the
-                        project of developing systems endowed with the intellectual processes characteristic of humans,
-                        such as the ability to reason, discover meaning, generalize, or learn from past experience.
-                        Since the development of the digital computer in the 1940s, it has been demonstrated that
-                        computers can be programmed to carry out very complex tasks—as, for example, discovering proofs
-                        for mathematical theorems or playing chess—with great proficiency. Still, despite continuing
-                        advances in computer processing speed and memory capacity, there are as yet no programs that can
-                        match human flexibility over wider domains or in tasks requiring much everyday knowledge. On the
-                        other hand, some programs have attained the performance levels of human experts and
-                        professionals in performing certain specific tasks, so that artificial intelligence in this
-                        limited sense is found in applications as diverse as medical diagnosis, computer search engines,
-                        and voice or handwriting recognition.
-                    </p>
-                    <br>
-                    <p>
-                        Artificial intelligence (AI), the ability of a digital computer or computer-controlled robot to
-                        perform tasks commonly associated with intelligent beings. The term is frequently applied to the
-                        project of developing systems endowed with the intellectual processes characteristic of humans,
-                        such as the ability to reason, discover meaning, generalize, or learn from past experience.
-                        Since the development of the digital computer in the 1940s, it has been demonstrated that
-                        computers can be programmed to carry out very complex tasks—as, for example, discovering proofs
-                        for mathematical theorems or playing chess—with great proficiency. Still, despite continuing
-                        advances in computer processing speed and memory capacity, there are as yet no programs that can
-                        match human flexibility over wider domains or in tasks requiring much everyday knowledge. On the
-                        other hand, some programs have attained the performance levels of human experts and
-                        professionals in performing certain specific tasks, so that artificial intelligence in this
-                        limited sense is found in applications as diverse as medical diagnosis, computer search engines,
-                        and voice or handwriting recognition.
-                    </p>
-                    <br>
-                    <p>
-                        Artificial intelligence (AI), the ability of a digital computer or computer-controlled robot to
-                        perform tasks commonly associated with intelligent beings. The term is frequently applied to the
-                        project of developing systems endowed with the intellectual processes characteristic of humans,
-                        such as the ability to reason, discover meaning, generalize, or learn from past experience.
-                        Since the development of the digital computer in the 1940s, it has been demonstrated that
-                        computers can be programmed to carry out very complex tasks—as, for example, discovering proofs
-                        for mathematical theorems or playing chess—with great proficiency. Still, despite continuing
-                        advances in computer processing speed and memory capacity, there are as yet no programs that can
-                        match human flexibility over wider domains or in tasks requiring much everyday knowledge. On the
-                        other hand, some programs have attained the performance levels of human experts and
-                        professionals in performing certain specific tasks, so that artificial intelligence in this
-                        limited sense is found in applications as diverse as medical diagnosis, computer search engines,
-                        and voice or handwriting recognition.
-                    </p> -->
                 </div>
                 <div class="col intro-col">
                     <img src="assets\img\ai.jpg" alt="">
@@ -194,8 +144,14 @@
 
 <script type="text/javascript">
     window.addEventListener("scroll", function () {
-        var header = document.querySelector("header");
+        var header = document.getElementById("wrapper_Header");
         header.classList.toggle("sticky", window.scrollY > 0);
+
+        if (window.scrollY == 0) {
+            document.getElementById("logo").src = "logo_white.png";
+        } else {
+            document.getElementById("logo").src = "logo_black.png";
+        }
     })
 </script>
 

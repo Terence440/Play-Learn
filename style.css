@@ -28,13 +28,13 @@ a,
 --------------------------------------------------------------*/
 
 header {
-    background-color: rgb(25, 24, 24);
-    position: fixed;
+    background-color: rgb(59, 56, 56);
+    /* position: fixed; */
     top: 0%;
     left: 0%;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: center; */
     transition: 0.6s;
     padding: 15px 5%;
     z-index: 100000;
@@ -113,6 +113,10 @@ header.sticky ul li a{
     color: black;
 }
 
+header.sticky .logo{
+    content: url("logo_black.png");
+}
+
 #btn_SignIn {
     padding: 9px 25px;
     background-color: rgba(0, 136, 169, 1);
@@ -126,8 +130,70 @@ header.sticky ul li a{
     background-color: rgba(0, 136, 169, 0.8);
 }
 
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
 /* responsive */
-@media (max-width:952px){
+@media (max-width: 991px) {
+    header{
+        padding: 10px 20px;
+    }
+}
+/* @media (max-width: 952px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn{
+        display: block;
+    }
+    #btn_SignIn,
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    #btn_SignIn,
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    a:hover, a.active{
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked ~ul{
+        left: 0;
+    }
+} */
+
+/* @media (max-width:952px){
     .logo{
         width: 60px;
         height: 40px;
@@ -154,13 +220,13 @@ header.sticky ul li a{
         padding: 4px 15px;
         font-size: 10px;
     }
-}
+} */
 
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
 section {
-    margin-top: 40px;
+    /* margin-top: 40px; */
     padding: 60px 2%;
     overflow: hidden;
 }
@@ -197,7 +263,7 @@ section {
     overflow: hidden;
 }
 .button-box{
-    width: 220px;
+    width: 229px;
     margin: 35px auto;
     position: relative;
     box-shadow: 0 0 20px 9px #ff61241f;
@@ -205,6 +271,7 @@ section {
 }
 .toggle-btn{
     padding: 10px 30px;
+    font-size: 16px;
     cursor: pointer;
     background: transparent;
     border: 0;
@@ -215,7 +282,7 @@ section {
     top: 0; 
     left: 0;
     position: absolute;
-    width: 110px;
+    width: 118px;
     height: 100%;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 30px;
@@ -226,7 +293,7 @@ section {
     text-align: center;
 }
 .social-icons img{
-    width: 30px;
+    width: 37px;
     margin: 0 12px;
     box-shadow: 0 0 20px 0 #7f7f7f3d;
     cursor: pointer; 
@@ -239,6 +306,7 @@ section {
     transition: 0.5s;
 }
 .input-field{
+    font-size: 16px;
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -250,6 +318,7 @@ section {
     background: transparent;
 }
 .submit-btn{
+    font-size: 18px;
     width: 85%;
     padding: 10px 30px;
     cursor:  pointer;
@@ -264,6 +333,7 @@ section {
     margin: 30px 10px 30px 0;
 }
 #span_loginPage{
+    font-size: 15px;
     color: #777;
     font-size: 12px;
     bottom: 68px;
