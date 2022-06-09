@@ -9,15 +9,17 @@
 }
 
 #content_Home{
-    padding: 70px 0 0 0;
+    width: 100%;
+    padding: 70px 0 100px 0;
     overflow-y: hidden;
 }
 
 #content_Home .container_Home{
-    overflow: hidden;
+    background: #171c24;
+    /* overflow: hidden; */
     width: 100%;
-    height: 80vh;
-    padding-top: 72px;
+    height: 90vh;
+    padding-top: 30px;
 }
 
 #content_Home h1{
@@ -25,6 +27,7 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 40px;
+    color: whitesmoke;
 }
 
 #content_Home .row_Home{
@@ -32,15 +35,15 @@
     left: 0%;
 }
 
-#content_Home img{
+#content_Home .play_and_learn{
     display: block;
     margin: 20px auto;
-    width: 60%;
+    width: 50%;
     height: 70vh;
 }
 
 #content_Function .row_Function{
-    margin: 50px 0;
+    margin: 50px 50px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -53,10 +56,10 @@
     align-items: center;
 }
 
-#content_Function .col_Function img{
+/* #content_Function .col_Function img{
     height: 50%;
     width: 50%;
-}
+} */
 
 #content_Function h4{
     font-size: 3vmin;
@@ -89,3 +92,48 @@
     background-color: #fc036b;
 }
 
+@media screen and (max-width: 1350px) {
+    #content_Home .play_and_learn{
+        width: 60%;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    #content_Home .container_Home{
+        height: 90vh;
+    }
+    #content_Home .play_and_learn{
+        height: 40%;
+        width: 70%;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #content_Home .container_Home{
+        height: 80vh;
+    }
+    #content_Home .play_and_learn{
+        height: 40%;
+        width: 70%;
+        padding-bottom: 5px;
+    }
+    #content_Home h1{
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #content_Home .container_Home{
+        height: 70vh;
+    }
+    #content_Home .play_and_learn{
+        height: 40%;
+        width: 70%;
+        padding-bottom: 5px;
+    }
+    #content_Home h1{
+        font-size: 30px;
+    }
+}

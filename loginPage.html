@@ -25,7 +25,7 @@
           <div class="content">
             <div class="logo"></div>
             <a href="index.html">
-              <img id="logo" src="logo_white.png" alt="logo">
+              <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
             </a>
             <ul class="links">
               <li><a href="#">Home</a></li>
@@ -150,10 +150,16 @@
 
 <script type="text/javascript">
     window.addEventListener("scroll", function () {
-        var header = document.querySelector("header");
-        header.classList.toggle("sticky", window.scrollY > 0);
+      var header = document.getElementById("wrapper_Header");
+      header.classList.toggle("sticky", window.scrollY > 0);
+  
+      if (window.scrollY == 0) {
+        document.getElementById("logo").src = "assets\\resources\\logo_white.png";
+      } else {
+        document.getElementById("logo").src = "assets\\resources\\logo_black.png";
+      }
     })
-</script>
+  </script>
 
 <script>
     var x = document.getElementById("login");

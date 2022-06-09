@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#Meet_Us{
+    margin-top: 20px;
+    background: #171c24;
+}
+
+#Meet_Us h1{
+    margin-bottom: 15px;
+}
+
+.container_MeetUs{
+    max-width: 950px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 50px 0;
+    position: relative;
+}
+
+.container_MeetUs::before{
+    height: 100%;
+    width: 100%;
+    background: #ff676d;
+    content: '';
+    position: absolute;
+    clip-path: inset(40% 0 0 0);
+    z-index: -1;
+}
+
+.container_MeetUs .main-card_MeetUs{
+    width: 200%;
+    display: flex;
+    justify-content: space-evenly;
+    transition: all 1s ease;
+}
+
+#two:checked ~ .main-card_MeetUs{
+    margin-left: -100%;
+}
+
+.main-card_MeetUs .cards_MeetUs{
+    width: calc(100% / 2 - 10px);
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    flex-wrap: wrap;
+}
+
+.main-card_MeetUs .cards_MeetUs .card_MeetUs{
+    background: #fff;
+    width: calc(100% / 3 - 10px);
+    padding: 30px;
+    border-radius: 24px;
+    transition: all  0.4s ease;
+}
+
+.main-card_MeetUs .cards_MeetUs .card_MeetUs:hover{
+    transform: translateY(-15px);
+}
+
+.cards_MeetUs .card_MeetUs .content_MeetUs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cards_MeetUs .card_MeetUs .content_MeetUs .img_MeetUs{
+    height: 130px;
+    width: 130px;
+    margin-bottom: 14px;
+    background: #4070f4;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.card_MeetUs .content_MeetUs .img_MeetUs img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #fff;    
+}
+
+.card_MeetUs .content_MeetUs .details_MeetUs .name_deatilsMeetUs{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.card_MeetUs .content_MeetUs .details_MeetUs .job_deatilsMeetUs{
+    font-size: 20px;
+    color: #4070f4;
+}
+
+.card_MeetUs .content_MeetUs .media-icons_MeetUs{
+    display: flex;
+    margin-top: 10px;
+}
+
+.container_MeetUs .media-icons_MeetUs a{
+    text-align: center;
+    line-height: 33px;
+    height: 35px;
+    width: 35px;
+    margin: 0 4px;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: #4070f4;
+    transition: all 0.3s ease;
+}
+
+.container_MeetUs .media-icons_MeetUs a:hover{
+    border-color: #4070f4;
+    color: #4070f4;
+    background: #fff;
+}
+
+.button_MeetUs{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+.button_MeetUs label{
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    margin: 0 4px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+}
+
+.button_MeetUs label.active{
+    width: 35px;
+}
+
+#one:checked ~ .button_MeetUs two.one{
+    width: 35px;
+}
+
+#two:checked ~ .button_MeetUs label.two{
+    width: 35px;
+}
+
+#two:checked ~ .button_MeetUs label.one{
+    width: 15px;
+}
+
+#one:checked ~ .button_MeetUs label.two{
+    width: 15px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main-card_MeetUs .cards_MeetUs .card_MeetUs{
+      margin: 20px 0 10px 0;
+      width: calc(100% / 2 - 10px);
+    }
+  }
+  @media (max-width: 600px) {
+    .main-card_MeetUs .cards_MeetUs .card_MeetUs{
+      /* margin: 20px 0 10px 0; */
+      width: 100%;
+    }
+  }

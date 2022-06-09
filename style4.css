@@ -22,7 +22,7 @@ body {
 # Header
 --------------------------------------------------------------*/
 
-#header-top {
+/* #header-top {
   background-color: rgb(25, 24, 24);
   position: fixed;
   top: 0%;
@@ -138,9 +138,9 @@ header.sticky ul li a {
 #btn_SignIn:hover {
   background-color: rgba(0, 136, 169, 0.8);
 }
-
+*/
 /* responsive */
-@media (max-width:952px) {
+/* @media (max-width:952px) {
   .logo {
     width: 60px;
     height: 40px;
@@ -173,7 +173,7 @@ header.sticky ul li a {
     padding: 4px 15px;
     font-size: 10px;
   }
-}
+}  */
 
 /* ================================================ */
 .wrapper {
