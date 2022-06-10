@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0%;
+}
+
+body {
+    background: #edf0f1;
+}
+
+li,
+a,
+#btn_SignIn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+header {
+    background-color: rgb(59, 56, 56);
+    /* position: fixed; */
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    transition: 0.6s;
+    padding: 15px 5%;
+    z-index: 100000;
+}
+
+.logo {
+    cursor: pointer;
+    transition: 0.6s;
+    margin-right: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav_links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav_links h1 {
+    margin-top: -20px;
+    color: whitesmoke;
+}
+
+.nav_links h6 {
+    position: absolute;
+    width: 130px;
+    height: 11px;
+    font-size: 11px;
+    margin-left: 30px;
+    top: 50px;
+    color: whitesmoke;
+}
+
+.nav_links ul {
+    flex: 1;
+    text-align: center;
+    list-style: none;
+    align-items: center;
+    margin-left: -40px;
+    margin-right: 100px;
+}
+
+.nav_links ul li {
+    display: inline-block;
+    padding: 0% 20px;
+}
+
+.nav_links ul li a {
+    transition: all 0.3s ease 0s;
+    white-space: nowrap;
+}
+
+.nav_links ul li a:hover {
+    color: #0088a9;
+}
+
+header.sticky {
+    background-color: whitesmoke;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 15px 5%;
+}
+
+header.sticky .nav_links h1,
+header.sticky .nav_links h6,
+header.sticky ul li a{
+    color: black;
+}
+
+header.sticky .logo{
+    content: url("logo_black.png");
+}
+
+#btn_SignIn {
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#btn_SignIn:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+/* responsive */
+@media (max-width: 991px) {
+    header{
+        padding: 10px 20px;
+    }
+}
+/* @media (max-width: 952px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn{
+        display: block;
+    }
+    #btn_SignIn,
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    #btn_SignIn,
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    a:hover, a.active{
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked ~ul{
+        left: 0;
+    }
+} */
+
+/* @media (max-width:952px){
+    .logo{
+        width: 60px;
+        height: 40px;
+    }
+    .logo_details{
+        margin-right: 20px;
+    }
+    .nav_links h1{
+        margin-top: -10px;
+        font-size: 20px;
+    }
+    .nav_links h6{
+        margin-top: -5px;
+        margin-left: 30px;
+        font-size: 8px;
+    }
+    .nav_links ul{
+        margin: auto;
+    }
+    .nav_links ul li a{
+        font-size: 12px;
+    }
+    #btn_SignIn{
+        padding: 4px 15px;
+        font-size: 10px;
+    }
+} */
+
+/* responsive */
+@media (max-width:952px){
+    .logo{
+        width: 60px;
+        height: 40px;
+    }
+    .logo_details{
+        margin-right: 20px;
+    }
+    .nav_links h1{
+        margin-top: -10px;
+        font-size: 20px;
+    }
+    .nav_links h6{
+        margin-top: -5px;
+        margin-left: 30px;
+        font-size: 8px;
+    }
+    .nav_links ul{
+        margin: auto;
+    }
+    .nav_links ul li a{
+        font-size: 12px;
+    }
+    #btn_SignIn{
+        padding: 4px 15px;
+        font-size: 10px;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Quiz
+--------------------------------------------------------------*/
+
+#quiz{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#quiz1{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#quiz .content {
+    width: 1300px;
+    height: 300px;
+    background-color: rgb(185, 255, 252);
+    border-radius: 30px;
+    display: flex;
+}
+
+#quiz1 .content1 {
+    width: 1300px;
+    height: 300px;
+    margin-top: 50px;
+    background-color: rgb(185, 255, 252);
+    border-radius: 30px;
+}
+
+#quiz .content p{
+    font-family: Georgia;
+    font-size: 30px ;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding-top: 20px;
+}
+
+#quiz1 .content1 p{
+    font-family: Georgia;
+    font-size: 30px ;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding-top: 20px;
+}
+
+.btn_answer{
+    margin-top: 30px;
+    margin-left: 150px;
+    padding: 30px;
+    width: 400px;
+    background-color: #0286a7;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn_answer1{
+    margin-top: 30px;
+    margin-left: 150px;
+    padding: 30px;
+    width: 400px;
+    background-color: #0286a7;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.active, .btn_answer:hover{
+    background-color: rgba(0, 204, 255, 0.8);
+}
+
+.active, .btn_answer1:hover{
+    background-color: rgba(0, 204, 255, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Submit
+--------------------------------------------------------------*/
+.submit{
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.submit .btn_submit{
+    padding: 20px;
+    width: 250px;
+    background-color: #0286a7;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#btn_submit:hover {
+    background-color: rgba(0, 204, 255, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Score
+--------------------------------------------------------------*/
+.score-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,  0, 0, 0.7);
+    position: absolute;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 1;
+  }
+  
+.score-content {
+    width: 800px;
+    height: 700px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+  }
+  
+.score-content h1 {
+    font-family: Garamond;
+    padding-top: 20px;
+    font-size: 40px;
+    color: #0088a9;
+    text-align: center;
+  }
+  
+.score-content .close{
+    position: absolute;
+    transform: rotate(45deg);
+    cursor: pointer;
+    font-size: 30px;
+    padding-left: 10px;
+    font-weight: bold;
+  }
+  
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+    width: 100%;
+    margin: 0%;
+    padding: 2%;
+    background: rgb(25, 24, 24);
+    bottom: 0;
+}
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+li{
+    padding-top: 5px;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 20px;
+}
+.footer-col .fa-solid{
+    color: whitesmoke;
+    margin-right: 5px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+.copyright{
+    padding-top: 40px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+/* Mobile Device */
+/* @media only screen and (max-width:850px) {
+    nav {
+        padding: 0;
+    }
+
+    .logo {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        margin-right: 20px;
+    }
+
+    .nav_links {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        background: #484872;
+    }
+
+    .nav_links h1 {
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+
+    .nav_links h6 {
+        position: absolute;
+        margin-left: 50px;
+        margin-top: 15px;
+    }
+
+    .nav_links li {
+        margin: 30px auto;
+    }
+} */
