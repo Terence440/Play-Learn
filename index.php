@@ -44,7 +44,7 @@
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="forum.html">About</a></li>
+          <li><a href="quiz.php">Quiz</a></li>
           <li>
             <a href="#" class="desktop-link">Features</a>
             <input type="checkbox" id="show-features">
