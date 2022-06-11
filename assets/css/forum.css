@@ -45,14 +45,17 @@
 	font-size: 20px;
 }
 
-.box_forum h3:hover{
-    color: #FF7361;
-}
 
 .box_forum p{
 	color: #777;
 	font-size: 14px;
 	line-height: 1.6;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #DEDEDE;
+    background-color: #fff;
 }
 
 textarea
