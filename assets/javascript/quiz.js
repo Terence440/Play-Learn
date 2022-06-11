@@ -12,11 +12,18 @@ for (var i = 0; i < btns.length; i++) {
     });
 }
 
-document.getElementById("btn_submit").addEventListener("click", function () {
-    document.querySelector('.score-bg').style.display = 'flex'
-});
+btns = document.getElementsByClassName("btn_submit");
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+        document.querySelector('.score-bg').style.display = 'flex'
+    });
+}
 
-document.querySelector(".close").addEventListener("click", function () {
-    document.querySelector('.score-bg').style.display = 'none'
-});
+btns = document.getElementsByClassName("close");
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+        document.querySelector('.score-bg').style.display = 'none'
+    });
+}
+
 
