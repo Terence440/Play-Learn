@@ -30,7 +30,7 @@
         <div class="content">
           <div class="logo"></div>
           <a href="index.html">
-            <img id="logo" src="logo_white.png" alt="logo" />
+            <img id="logo" src="assets\\resources\\logo_white.png" alt="logo" />
           </a>
           <ul class="links">
             <li><a href="#">Home</a></li>
@@ -199,7 +199,7 @@
             rather not."
           </p>
         </div>
-        <div style="margin-bottom: 50px;">
+        <div style="padding-bottom: 50px;">
           <h2
             style="
               background: -webkit-linear-gradient(
@@ -292,12 +292,13 @@
     window.addEventListener("scroll", function () {
       var header = document.getElementById("wrapper_Header");
       header.classList.toggle("sticky", window.scrollY > 0);
-
+  
       if (window.scrollY == 0) {
-        document.getElementById("logo").src = "logo_white.png";
+        document.getElementById("logo").src = "assets\\resources\\logo_white.png";
       } else {
-        document.getElementById("logo").src = "logo_black.png";
+        document.getElementById("logo").src = "assets\\resources\\logo_black.png";
       }
-    });
+    })
   </script>
+
 </html>

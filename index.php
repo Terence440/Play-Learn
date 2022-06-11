@@ -1,3 +1,13 @@
+<?php
+
+    session_start();
+    include("connection.php");
+    include("function.php");
+
+    $user_data = check_login($con);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,12 +39,12 @@
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
         <div class="logo"></div>
-        <a href="index.html">
+        <a href="index.php">
           <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
         </a>
         <ul class="links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="forum.html">About</a></li>
           <li>
             <a href="#" class="desktop-link">Features</a>
             <input type="checkbox" id="show-features">
@@ -69,7 +79,8 @@
           <li><a href="#">Feedback</a></li>
         </ul>
       </div>
-      <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
     </nav>
   </div>
   <!-- ======= Header ======= -->
@@ -78,7 +89,7 @@
   <section id="content_Home">
     <div class="container_Home">
       <div class="row_Home" style="justify-content: center;">
-        <h1>Official Play & Learn Site</h1>
+        <h1>Welcome, <?php echo $user_data['user_name']; ?></h1>
         <img class="play_and_learn" src="assets/resources/play_and_learn.jpg" alt="play_and_learn">
       </div>
     </div>
@@ -411,7 +422,7 @@
 </body>
 
 <script type="text/javascript">
-  window.addEventListener("scroll", function () {
+  window.addEventListener("scroll", function() {
     var header = document.getElementById("wrapper_Header");
     header.classList.toggle("sticky", window.scrollY > 0);
 
