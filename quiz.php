@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play & Learn</title>
-    <link rel="stylesheet" href="style6.css">
+    <link rel="stylesheet" href="assets/css/quiz_Ques.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
@@ -68,13 +68,13 @@
 
 
     <div id="quiz">
-        <form action="quiz.php" method="post">
+        <form id="form" action="score.php" method="get">
             <div class="wrapper1">
                 <p class="question">1. Which relation is NOT a function?</p>
-                <input type="radio" name="question1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
-                <input type="radio" name="question1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
-                <input type="radio" name="question1" id="option-3" value="{(3,-2), (5,-6), (7,7), (8,8)}">
-                <input type="radio" name="question1" id="option-4" value="{(1,-5), (-1,6), (1,5), (6,-3)}">
+                <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
+                <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
+                <input type="radio" name="q1" id="option-3" value="{(3,-2), (5,-6), (7,7), (8,8)}">
+                <input type="radio" name="q1" id="option-4" value="{(1,-5), (-1,6), (1,5), (6,-3)}">
                 <label for="option-1" class="option option-1">
                     <div class="dot"></div>
                     <span>{(1,-5), (3,1), (-5,4), (4,-2)}</span>
@@ -95,10 +95,10 @@
 
             <div class="wrapper2">
                 <p class="question">2. All of the x values or inputs are called what?</p>
-                <input type="radio" name="question2" id="option-5" value="{(1,-5), (3,1), (-5,4), (4,-2)}" value="Domain">
-                <input type="radio" name="question2" id="option-6" value="{(2,7), (3,7), (4,7), (5,8)}" value="Function">
-                <input type="radio" name="question2" id="option-7" value="{(3,-2), (5,-6), (7,7), (8,8)}" value="Range">
-                <input type="radio" name="question2" id="option-8" value="{(1,-5), (-1,6), (1,5), (6,-3)}" value="Relation">
+                <input type="radio" name="q2" id="option-5" value="Domain">
+                <input type="radio" name="q2" id="option-6" value="Function">
+                <input type="radio" name="q2" id="option-7" value="Range">
+                <input type="radio" name="q2" id="option-8" value="Relation">
                 <label for="option-5" class="option option-5">
                     <div class="dot"></div>
                     <span>Domain</span>
@@ -132,41 +132,26 @@
                 <p class="answer"><input type="radio" name="question2" value="Relation">Relation</p>
             </div>-->
             <div class="submit">
-                <button type="submit" class="btn_submit" value="Submit">Submit
+                <input type="submit" id="btn_submit" class="btn_submit" value="Submit">
             </div>
         </form>
     </div>
 
-    <form action="quiz.php" method="post">
-        <div class="submit">
-            <input type="submit" id="btn_submit" class="btn_submit" value="Submit" href="#">
-        </div>
-    </form>
-
-
-
-    <div class="score-bg">
-        <div class="score-content">
-            <div class="close">+</div>
-            <h1>Your Score</h1>
-            <h1>Your Previous Score</h1>
-            <h1>Your Highest Score</h1>
-        </div>
-    </div>
-
     <?php
-    $answer1 = "{(1,-5), (3,1), (-5,4), (4,-2)}";
-    $answer2 = "Domain";
     $correct = 0;
-    if (!empty($_POST)) {
-        if ($answer1 == "{(1,-5), (3,1), (-5,4), (4,-2)}") {
+    if (isset($_GET["q1"])) {
+        $answer1 = $_GET["q1"];
+        if ($answer1 == "{(1,-5), (-1,6), (1,5), (6,-3)}") {
             $correct++;
         }
-        if ($answer1 == "{(1,-5), (3,1), (-5,4), (4,-2)}") {
-            $correct++;
-        }
-        echo "$correct";
     }
+    if (isset($_GET["q2"])) {
+        $answer2 = $_GET["q2"];
+        if ($answer2 == "Domain") {
+            $correct++;
+        }
+    }
+    echo $correct;
     ?>
 
     <!-- ======= Footer ======= -->
@@ -224,8 +209,6 @@
 <script>
     AOS.init();
 </script>
-
-<script src="assets/javascript/quiz.js"></script>
 
 <script type="text/javascript">
     window.addEventListener("scroll", function() {

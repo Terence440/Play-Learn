@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play & Learn</title>
-    <link rel="stylesheet" href="assets/css/quiz.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/score.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <script type="text/javascript" src="assets/javascript/quiz.js"></script>
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -66,75 +66,54 @@
         </nav>
     </div>
 
-
-    <!-- ======= Slideshow ======= -->
-    <div class="slideshow">
-        <div class="mySlides fade">
-            <p><img src="assets/resources/quiz.jpg" class="img-fluid image" alt=""></p>
-            <h1>Are you ready for the Quiz</h1>
-            <h2>“By the time the average person finishes college, he or she will have taken over 2,600 tests,
-                quizzes, and exams. The right answer approach becomes deeply ingrained in our thinking.
-                This may be fine for some mathematical problems where there is in fact only one right answer.
-                The difficulty is that most of life isn’t this way. Life is ambiguous; there are many right answers-
-                all depending on what you’re looking for. But if you think there is only one right answer, then you’ll
-                stop
-                looking as soon as you find one.” ~ Roger von Oech</h2>
-            <p><a href="#quiz" class="btn-get-started">Lets Started</a></p>
+    <div class="hero">
+        <div class="score">
+            <h1>Your Score</h1>
+            <h1>Your Previous Score</h1>
+            <h1>Your Highest Score</h1>
+            <table style="width:100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Score</th>
+                    <th>Time Taken</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                </tr>
+            </table>
         </div>
-
-        <div class="mySlides fade">
-            <p><img src="assets/resources/quiz2.jpg" class="img-fluid image" alt=""></p>
-            <h1>Are you ready for the Quiz</h1>
-            <h2>“My friend said to me, You know what I like? Mashed potatoes. I was like, Dude, you
-                have to give me time to guess. If you’re going to quiz me you have to insert a pause.” ~
-                Mitch Hedberg</h2>
-            <p><a href="#quiz" class="btn-get-started">Lets Started</a></p>
+        <div class="leaderboard">
+            <h1>leaderboard</h1>
+            <table style="width:100%">
+                <tr>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Time Taken</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                </tr>
+            </table>
         </div>
-
-        <div class="mySlides fade">
-            <p><img src="assets/resources/quiz3.jpg" class="img-fluid image" alt=""></p>
-            <h1>Are you ready for the Quiz</h1>
-            <h2>“Thou shalt not answer questionnaires Or quizzes upon world affairs, Nor with compliance
-                Take any test. Thou shalt not sit with statisticians nor commit A social science.” ~
-                W. H. Auden</h2>
-            <p><a href="#quiz" class="btn-get-started">Lets Started</a></p>
-        </div>
-        <br />
-
-        <div style="text-align: center">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-
-    <div id="quiz" >
-        <div class="content" data-aos="fade-up" data-aos-delay="300">
-            <a href="#" class="button"><img src="assets/resources/subject1.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject2.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject3.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject4.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject5.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject6.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject7.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject8.png" class="image" alt=""></a>
+        <div class="button">
+            <a class="button-content" href="quiz.html">Try Again</a>
         </div>
     </div>
 
-    <div class="modal-bg">
-        <div class="modal-content">
-            <div class="close">+</div>
-            <h1>Select a Chapter to Start</h1>
-            <a href="quiz.php"><img src="assets/resources/chapter1.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter2.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter3.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter4.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter5.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter6.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter7.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter8.png" class="image" alt=""></a>
-        </div>
-    </div>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -184,6 +163,7 @@
         <p class="copyright">Copyright © 2021. All Right Reserved</p>
     </footer>
     <!-- ======= Footer ======= -->
+
 </body>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -194,40 +174,10 @@
 <script src="assets/javascript/quiz.js"></script>
 
 <script type="text/javascript">
-    window.addEventListener("scroll", function () {
-        var header = document.getElementById("wrapper_Header");
+    window.addEventListener("scroll", function() {
+        var header = document.querySelector("header");
         header.classList.toggle("sticky", window.scrollY > 0);
-
-        if (window.scrollY == 0) {
-            document.getElementById("logo").src = "assets\\resources\\logo_white.png";
-        } else {
-            document.getElementById("logo").src = "assets\\resources\\logo_black.png";
-        }
     })
-</script>
-
-<script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace("active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 3000); // Change image every 5 seconds
-    }
 </script>
 
 </html>
