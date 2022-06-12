@@ -22,11 +22,11 @@
             <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
             <div class="content">
                 <div class="logo"></div>
-                <a href="index.html">
+                <a href="index.php">
                     <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
                 </a>
                 <ul class="links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li>
                         <a href="#" class="desktop-link">Features</a>
@@ -66,6 +66,20 @@
         </nav>
     </div>
 
+    <div class="modal-bg">
+        <div class="modal-content">
+            <p>1. The quiz contain olny 2 question</p>
+            <p>2. You have 1 minute to answer all the question</p>
+            <p>3. 1 questain cointain 1 mark</p>
+            <a href="#" id="start_btn" class="btn_start" onclick="startQuiz()">Start</a>
+        </div>
+    </div>
+
+    <div class="time-bg">
+            <div class="time-content">
+                <p id="countdown">1:00</p>
+            </div>
+        </div>
 
     <div id="quiz">
         <form id="form" action="score.php" method="get">
@@ -151,7 +165,6 @@
             $correct++;
         }
     }
-    echo $correct;
     ?>
 
     <!-- ======= Footer ======= -->
@@ -209,6 +222,8 @@
 <script>
     AOS.init();
 </script>
+
+<script src="assets/javascript/quiz2.js"></script>
 
 <script type="text/javascript">
     window.addEventListener("scroll", function() {

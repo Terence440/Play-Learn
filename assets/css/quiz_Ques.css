@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+#wrapper_Header {
+    display: flex;
+    display: none;
+    }
+
+#footer {
+    display: flex;
+    display: none;
+
+}
+
 /*--------------------------------------------------------------
 # Quiz
 --------------------------------------------------------------*/
@@ -7,9 +18,11 @@
 #quiz {
     background-color: white;
     padding-top: 100px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: none;
+
 }
 
 /*#quiz .content {
@@ -76,8 +89,8 @@
     height: 50px;
     background-color: #0286a7;
     color: white;
-    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     border-radius: 20px;
     font-size: 15px;
@@ -95,7 +108,7 @@
     justify-content: center;
     border-radius: 5px;
     padding: 20px 15px;
-    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper1 .question {
@@ -113,10 +126,10 @@
     height: 50%;
     width: 60%;
     display: flex;
-    margin: 20px ;
+    margin: 20px;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px ;
+    padding: 10px;
     padding-left: 30px;
     margin-left: 120px;
     border: 2px solid lightgrey;
@@ -153,7 +166,7 @@
 .wrapper1 #option-1:checked:checked~.option-1,
 .wrapper1 #option-2:checked:checked~.option-2,
 .wrapper1 #option-3:checked:checked~.option-3,
-.wrapper1 #option-4:checked:checked~.option-4{
+.wrapper1 #option-4:checked:checked~.option-4 {
     border-color: #0069d9;
     background: #0069d9;
 }
@@ -161,14 +174,14 @@
 .wrapper1 #option-1:checked:checked~.option-1 .dot,
 .wrapper1 #option-2:checked:checked~.option-2 .dot,
 .wrapper1 #option-3:checked:checked~.option-3 .dot,
-.wrapper1 #option-4:checked:checked~.option-4 .dot{
+.wrapper1 #option-4:checked:checked~.option-4 .dot {
     background: #fff;
 }
 
 .wrapper1 #option-1:checked:checked~.option-1 .dot::before,
 .wrapper1 #option-2:checked:checked~.option-2 .dot::before,
 .wrapper1 #option-3:checked:checked~.option-3 .dot::before,
-.wrapper1 #option-4:checked:checked~.option-4 .dot::before{
+.wrapper1 #option-4:checked:checked~.option-4 .dot::before {
     opacity: 1;
     transform: scale(1);
 }
@@ -179,9 +192,9 @@
 }
 
 .wrapper1 #option-1:checked:checked~.option-1 span,
-.wrapper1 #option-2:checked:checked~.option-2 span, 
+.wrapper1 #option-2:checked:checked~.option-2 span,
 .wrapper1 #option-3:checked:checked~.option-3 span,
-.wrapper1 #option-4:checked:checked~.option-4 span{
+.wrapper1 #option-4:checked:checked~.option-4 span {
     color: #fff;
 }
 
@@ -192,7 +205,7 @@
     border-radius: 5px;
     margin-top: 50px;
     padding: 20px 15px;
-    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper2 .question {
@@ -210,10 +223,10 @@
     height: 50%;
     width: 60%;
     display: flex;
-    margin: 20px ;
+    margin: 20px;
     border-radius: 5px;
     cursor: pointer;
-    padding: 10px ;
+    padding: 10px;
     padding-left: 30px;
     margin-left: 120px;
     border: 2px solid lightgrey;
@@ -250,7 +263,7 @@
 .wrapper2 #option-5:checked:checked~.option-5,
 .wrapper2 #option-6:checked:checked~.option-6,
 .wrapper2 #option-7:checked:checked~.option-7,
-.wrapper2 #option-8:checked:checked~.option-8{
+.wrapper2 #option-8:checked:checked~.option-8 {
     border-color: #0069d9;
     background: #0069d9;
 }
@@ -258,14 +271,14 @@
 .wrapper2 #option-5:checked:checked~.option-5 .dot,
 .wrapper2 #option-6:checked:checked~.option-6 .dot,
 .wrapper2 #option-7:checked:checked~.option-7 .dot,
-.wrapper2 #option-8:checked:checked~.option-8.dot{
+.wrapper2 #option-8:checked:checked~.option-8.dot {
     background: #fff;
 }
 
 .wrapper2 #option-5:checked:checked~.option-5 .dot::before,
 .wrapper2 #option-6:checked:checked~.option-6 .dot::before,
 .wrapper2 #option-7:checked:checked~.option-7 .dot::before,
-.wrapper2 #option-8:checked:checked~.option-8 .dot::before{
+.wrapper2 #option-8:checked:checked~.option-8 .dot::before {
     opacity: 1;
     transform: scale(1);
 }
@@ -276,9 +289,95 @@
 }
 
 .wrapper2 #option-5:checked:checked~.option-5 span,
-.wrapper2 #option-6:checked:checked~.option-6 span, 
+.wrapper2 #option-6:checked:checked~.option-6 span,
 .wrapper2 #option-7:checked:checked~.option-7 span,
-.wrapper2 #option-8:checked:checked~.option-8 span{
+.wrapper2 #option-8:checked:checked~.option-8 span {
     color: #fff;
 }
+
+/*--------------------------------------------------------------
+# start
+--------------------------------------------------------------*/
+.modal-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 56px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.modal-content .btn_start {
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 10px 28px 11px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: #fff;
+    background: #47b2e4;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    border-color: white;
+}
+
+.modal-content .btn_start:hover {
+    color: white;
+    background-color: #0286a7;
+
+}
+
+
+@media (max-width: 1700px) {
+    .modal-content {
+        height: 600px;
+    }
+}
+
+/*--------------------------------------------------------------
+# start
+--------------------------------------------------------------*/
+.time-bg {
+    right: 5%;
+    padding-top: 100px;
+    padding-left: 20px;
+    display: none;
+    display: flex;
+    position: fixed;
+}
+
+.time-bg .time-content {
+    padding-top: 10px;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    background-color: #808080;
+    color: white;
+    margin: 0 auto;
+}
+
+.time-bg .time-content p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+}
+
 
