@@ -1,62 +1,3 @@
-<?php
-
-session_start();
-include("connection.php");
-include("function.php");
-
-// $user_data = check_login($con);
-// Register
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  // something was posted
-  $user_name = $_POST['user_name'];
-  $user_email = $_POST['user_email'];
-  $password = $_POST['password'];
-
-  if (!empty($user_name) && !empty($password) && !empty($user_email) && !is_numeric($user_name)) {
-    // save to database;
-    $user_id = random_num(20);
-    $query = "INSERT INTO users (user_id, user_name, user_email, password) VALUES ('$user_id', '$user_name', '$user_email' , '$password')";
-
-    mysqli_query($con, $query);
-
-    header("Location: loginPage.php");
-  } else {
-    echo "Please enter some valid information.";
-  }
-}
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  // something was posted
-  $user_name = $_POST['user_name'];
-  $password = $_POST['password'];
-
-  if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
-    // save to database;
-    $user_id = random_num(20);
-    $query = "SELECT * FROM users WHERE user_name = '$user_name' LIMIT 1";
-
-    $result = mysqli_query($con, $query);
-
-    if ($result) {
-      if ($result && mysqli_num_rows($result) > 0) {
-        // Save the data into an array
-        $user_data = mysqli_fetch_assoc($result);
-
-        if ($user_data['password'] === $password) {
-          $_SESSION['user_id'] = $user_data['user_id'];
-          header("Location: index.php");
-          die;
-        }
-      }
-    }
-    echo "Please enter some valid information.";
-  } else {
-    echo "Please enter some valid information.";
-  }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Play & Learn</title>
 
-  <link rel="stylesheet" type="text/css" href="assets/css/loginPage.css">
+  <link rel="stylesheet" href="assets/css/loginPage.css">
   <link rel="stylesheet" type="text/css" href="assets/css/header.css">
   <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
 
@@ -123,36 +64,69 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         </ul>
       </div>
       <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
       <a class="cta" href="loginPage.php"><button id="btn_SignIn">Log Out</button></a>
     </nav>
   </div>
 
-  <section class="hero">
+  <section class="form_User">
     <div class="form-box">
       <div class="button-box">
         <div id="btn"></div>
         <button type="button" class="toggle-btn" onclick="login()">Log In</button>
         <button type="button" class="toggle-btn" onclick="register()">Register</button>
       </div>
+
+      <!-- Log In -->
+      <div class="form login_Form">
+        <form id="login" class="input-group" enctype="multipart/form-data" method="post" autocomplete="off">
+          <div class="error-text"></div>
+          <div class="field input">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="field input">
+            <label>Password</label>
+            <input  type="password" name="password" placeholder="Enter your password" required>
+            <div class="form-pas"><i class="fas fa-eye"></i></div>
+          </div>
+          <div class="field button">
+            <input type="submit" name="submit" value="Log In">
+          </div>
+        </form>
+      </div>
+
+      <!-- Sign Up  -->
+      <div class="form signup">
+        <form id="register" class="input-group" method="post" autocomplete="off">
+          <div class="error-text"></div>
+          <div class="field input">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username" required>
+          </div>
+          <div class="field input">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+          </div>
+          <div class="field input">
+            <label>Password</label>
+            <input  type="password" name="password" placeholder="Enter your password" required>
+            <div class="form-pas"><i class="fas fa-eye"></i></div>
+          </div>
+          <div class="field image">
+            <label>Select Image</label>
+            <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
+          </div>
+          <div class="field button">
+            <input type="submit" name="submit" value="Sign Up">
+          </div>
+        </form>
+      </div>
       <div class="social-icons">
         <img src="assets/resources/fb.png">
         <img src="assets/resources/twit.png">
         <img src="assets/resources/gog.png">
       </div>
-      <form id="login" class="input-group" method="post">
-        <input type="text" class="input-field" name="user_name" placeholder="User Id" required>
-        <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
-        <input type="checkbox" class="check-box"><span id="span_loginPage">Remember Password</span>
-        <button type="submit" class="submit-btn">Log In</button>
-      </form>
-      <form id="register" class="input-group" method="post">
-        <input type="text" class="input-field" name="user_name" placeholder="User Id" required>
-        <input type="email" class="input-field" name="user_email" placeholder="Email Id" required>
-        <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
-        <input type="checkbox" class="check-box"><span id="span_loginPage">I agree to the terms &
-          conditions</span>
-        <button type="submit" class="submit-btn">Register</button>
-      </form>
     </div>
   </section>
 
@@ -237,5 +211,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     z.style.left = "0px";
   }
 </script>
+
+<script>
+  const pswrdField = document.querySelector(".form input[type='password']");
+  toggleBtn = document.querySelector(".form-pas i");
+
+  toggleBtn.onclick = ()=>{
+    if(pswrdField.type == "password"){
+      pswrdField.type = "text";
+      toggleBtn.classList.add("active");
+    } else{
+      pswrdField.type = "password";
+      toggleBtn.classList.remove("active");
+    }
+  }
+</script>
+
+<script src="assets/javascript/signUp.js"></script>
+<script src="assets/javascript/logIn.js"></script>
 
 </html>

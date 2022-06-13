@@ -5,7 +5,8 @@
     $dbpass = "";
     $dbname = "p&l";
 
-    if(!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    if(!$conn)
     {
         die("filed to connect!");
     }

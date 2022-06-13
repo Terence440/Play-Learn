@@ -1,10 +1,16 @@
 <?php
 
-    session_start();
-    include("connection.php");
-    include("function.php");
+session_start();
 
-    $user_data = check_login($con);
+if (!isset($_SESSION['unique_id'])) {
+  header("Location: loginPage.php");
+}
+
+include_once "assets/php/config.php";
+$sql = mysqli_query($conn, "SELECT * FROM chat WHERE unique_id = {$_SESSION['unique_id']}");
+if(mysqli_num_rows($sql) > 0){
+  $user_data = mysqli_fetch_assoc($sql);
+}
 ?>
 
 
@@ -81,6 +87,7 @@
       </div>
       <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
       <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
+      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
     </nav>
   </div>
   <!-- ======= Header ======= -->
@@ -89,7 +96,7 @@
   <section id="content_Home">
     <div class="container_Home">
       <div class="row_Home" style="justify-content: center;">
-        <h1>Welcome, <?php echo $user_data['user_name']; ?></h1>
+        <h1>Welcome, <?php echo $user_data['username']; ?></h1>
         <img class="play_and_learn" src="assets/resources/play_and_learn.jpg" alt="play_and_learn">
       </div>
     </div>
@@ -435,7 +442,7 @@
 </script>
 
 <!-- Swiper JS -->
-<script src="assets\js\swiper-bundle.min.js"></script>
+<script src="assets\javascript\swiper-bundle.min.js"></script>
 
 <!-- Initialize Swiper -->
 <script>

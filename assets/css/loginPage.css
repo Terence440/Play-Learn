@@ -22,7 +22,149 @@ section {
 /*--------------------------------------------------------------
 # LoginPage
 --------------------------------------------------------------*/
-.hero{
+.form_User{
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.form_User form{
+    margin: 0px 0;
+  }
+  .form_User form .error-text{
+    color: #721c24;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 10px;
+    display: none;
+  }
+  .form_User form .field{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    position: relative;
+  }
+  .form_User form .field label{
+    margin-bottom: 2px;
+  }
+  .form_User form .input input{
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .form_User form .field input{
+    outline: none;
+  }
+  .form_User form .image input{
+    font-size: 17px;
+  }
+  .form_User form .button input{
+    height: 45px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 13px;
+  }
+  .form_User form .field i{
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+  .form_User form .field i.active::before{
+    color: #333;
+    content: "\f070";
+  }
+  .form_User .link{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+  }
+  .form_User .link a{
+    color: #333;
+  }
+  .form_User .link a:hover{
+    text-decoration: underline;
+  }
+
+.login_Form,
+.signup{
+  width: 580px;
+  height: 680px;
+  background: #ffffff;
+  }  
+
+.form-box{
+    width: 580px;
+    height: 680px;
+    position: relative;
+    margin: 9% auto 6%;
+    background: #ffffff;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.button-box{
+    width: 330px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+.toggle-btn{
+    padding: 10px 50px;
+    font-size: 16px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn{
+    top: 0; 
+    left: 0;
+    position: absolute;
+    width: 165px;
+    height: 100%;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+.social-icons{
+    margin: 480px auto 0;
+    text-align: center;
+}
+.social-icons img{
+    width: 37px;
+    margin: 0 12px;
+    box-shadow: 0 0 20px 0 #7f7f7f3d;
+    cursor: pointer; 
+    border-radius: 50%;
+}
+
+.input-group{
+    top: 250px;
+    position: absolute;
+    width: 380px;
+    transition: 0.5s;
+}
+
+/* .form_User{
     font-family: "Montserrat", sans-serif;
     height: 100%;
     width: 100%;
@@ -82,6 +224,7 @@ section {
     width: 380px;
     transition: 0.5s;
 }
+
 .input-field{
     font-size: 16px;
     width: 100%;
@@ -100,7 +243,6 @@ section {
     padding: 10px 30px;
     margin: 25px auto;
     cursor:  pointer;
-    /* margin: auto; */
     display: block;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border: 0;
@@ -115,11 +257,25 @@ section {
     color: #777;
     font-size: 12px;
     bottom: 68px;
-    /* position: absolute; */
 }
+
+.form-box form .pass_show i{
+    color: #ccc;
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.form-box form .pass_show i.active::before{
+    color: #333;
+    content: "\f070";
+} */
+
 #login{
     left: 100px;
 }
 #register{
+    top: 200px;
     left: 850px;
 }
