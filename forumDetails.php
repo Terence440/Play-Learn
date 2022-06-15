@@ -1,3 +1,13 @@
+<?php
+
+    session_start();
+    include("connection.php");
+    include("function.php");
+
+    $forum_data = check_forum($con);
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,43 +72,52 @@
               <li><a href="#">Feedback</a></li>
             </ul>
           </div>
-          <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+          <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
         </nav>
       </div>
       
 		<!-- ======content section/body=====-->
 		<section class="forum">
 		<div class="content_forum">
-            <h2>Forum</h2>
-			<a href="addNewForum.html" class="button_forum"> Add New Forum </a>
+            <h2>Forum Details</h2>
+			<a href="forum.php" class="button_forum"> Back </a>
         </div>
 			<div class="box_forum">
 				<h3>How Did You Hear About This Position?</h3>
 				<p>Wouldn’t it be great if you knew exactly what questions a hiring manager would be asking you in your next job interview?
 				   We can’t read minds, unfortunately, but we’ll give you the next best thing: a list of more than 40 of the most commonly asked interview questions, along with advice for answering them all.
-                   While we don’t recommend having a canned response for every interview question (in fact, please don’t), we do recommend spending some time getting comfortable with what you might be asked, what hiring managers are really looking for in your responses, and what it takes to show that you’re the right person for the job........</p>
+                   While we don’t recommend having a canned response for every interview question (in fact, please don’t), we do recommend spending some time getting comfortable with what you might be asked, what hiring managers are really looking for in your responses, and what it takes to show that you’re the right person for the job.
+				   <br><br>
+				   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. 
+				   Donec congue commodo mi, sed commodo velit fringilla ac. Fusce placerat venenatis mi. 
+				   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+				   Cras ornare, dolor a aliquet rutrum, dolor turpis condimentum leo, a semper lacus purus in felis. Quisque blandit posuere turpis, eget auctor felis pharetra eu .
+				</p>
 				<br>
-				<a href="forumDetails.html" class="button_forum1"> Read More </a>
+			</div>
+			
+			<div class="box_forum">
+				<h4>Comments: </h4>
+				<br>
+				<form>
+				<textarea placeholder='Add Your Comment'></textarea></i>
+                    <div class="btn">
+                        <input type="submit" value='Comment'>
+                        <button id='clear'>Cancel</button>
+                    </div>
+                </form>
+
+				<br>
 			</div>
 
 			<div class="box_forum">
-				<h3>How Did You Hear About This Position?</h3>
-				<p>Wouldn’t it be great if you knew exactly what questions a hiring manager would be asking you in your next job interview?
-				   We can’t read minds, unfortunately, but we’ll give you the next best thing: a list of more than 40 of the most commonly asked interview questions, along with advice for answering them all.
-                   While we don’t recommend having a canned response for every interview question (in fact, please don’t), we do recommend spending some time getting comfortable with what you might be asked, what hiring managers are really looking for in your responses, and what it takes to show that you’re the right person for the job........</p>
+				<h4>Previous Comments: </h4>
 				<br>
-				<a href="#" class="button_forum1"> Read More </a>
-			</div>
-
-			<div class="box_forum">
-				<h3>How Did You Hear About This Position?</h3>
-				<p>Wouldn’t it be great if you knew exactly what questions a hiring manager would be asking you in your next job interview?
-				   We can’t read minds, unfortunately, but we’ll give you the next best thing: a list of more than 40 of the most commonly asked interview questions, along with advice for answering them all.
-                   While we don’t recommend having a canned response for every interview question (in fact, please don’t), we do recommend spending some time getting comfortable with what you might be asked, what hiring managers are really looking for in your responses, and what it takes to show that you’re the right person for the job........</p>
+				<h5> User 1 </h5>
+				<p> This article is so meaningful and interesting.</p>
 				<br>
-				<a href="#" class="button_forum1"> Read More </a>
-			</div>
-
+  		</div>
+     
 		</section>
 
         <!-- ======= Footer ======= -->

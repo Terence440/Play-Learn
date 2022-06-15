@@ -1,3 +1,34 @@
+<?php
+
+    session_start();
+    include("connection.php");
+    include("function.php");
+
+    $user_data = check_login($con);
+
+    $author_username = $user_data['user_name'];
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  // something was posted
+  $author_name = $_POST['author_name'];
+  $forum_title = $_POST['forum_title'];
+  $forum_message = $_POST['forum_message'];
+
+  if (!empty($author_username) && !empty($forum_title) && !empty($forum_message)) {
+    // save to database;
+    $query = "INSERT INTO forum(author_username, author_name, forum_title, forum_message) VALUES ('$author_username', '$author_name', '$forum_title', '$forum_message')";
+
+    mysqli_query($con, $query);
+
+    header("Location: forum.php");
+  } 
+  else {
+    echo "Please enter some valid information.";
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +41,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/forum.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+	<link type="text/css" href="assets/css/sample.css" rel="stylesheet" media="screen" />
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -62,52 +94,37 @@
               <li><a href="#">Feedback</a></li>
             </ul>
           </div>
-          <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+          <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
         </nav>
       </div>
       
 		<!-- ======content section/body=====-->
 		<section class="forum">
 		<div class="content_forum">
-            <h2>Forum Details</h2>
-			<a href="forum.html" class="button_forum"> Back </a>
-        </div>
-			<div class="box_forum">
-				<h3>How Did You Hear About This Position?</h3>
-				<p>Wouldn’t it be great if you knew exactly what questions a hiring manager would be asking you in your next job interview?
-				   We can’t read minds, unfortunately, but we’ll give you the next best thing: a list of more than 40 of the most commonly asked interview questions, along with advice for answering them all.
-                   While we don’t recommend having a canned response for every interview question (in fact, please don’t), we do recommend spending some time getting comfortable with what you might be asked, what hiring managers are really looking for in your responses, and what it takes to show that you’re the right person for the job.
-				   <br><br>
-				   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi adipiscing gravida odio, sit amet suscipit risus ultrices eu. Fusce viverra neque at purus laoreet consequat. Vivamus vulputate posuere nisl quis consequat. 
-				   Donec congue commodo mi, sed commodo velit fringilla ac. Fusce placerat venenatis mi. 
-				   Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-				   Cras ornare, dolor a aliquet rutrum, dolor turpis condimentum leo, a semper lacus purus in felis. Quisque blandit posuere turpis, eget auctor felis pharetra eu .
-				</p>
-				<br>
-			</div>
-			
-			<div class="box_forum">
-				<h4>Comments: </h4>
-				<br>
-				<form>
-				<textarea placeholder='Add Your Comment'></textarea></i>
-                    <div class="btn">
-                        <input type="submit" value='Comment'>
-                        <button id='clear'>Cancel</button>
-                    </div>
-                </form>
-				<br>
-				<hr>
-				<br>
-				<h5> User 1 </h5>
-				<p> This article is so meaningful and interesting. </p>
-				<br>
-				<hr>
-				<br>
-				<h5> User 2 </h5>
-				<p> This article is so meaningful and interesting. </p>
-				<br>
-			</div>
+            <h2>Add New Forum</h2>
+			<a href="forum.php" class="button_forum"> Back </a>
+			<br>
+    </div>
+    
+    <div class = "NewForumForm">
+
+          <form class="inputBox" method="post">
+                    <h2>New Forum</h2>
+					<br>
+                    <input type="text" class="input-field" name="author_name" placeholder="Name" required>
+					<br>
+          <br>
+                    <input type="text" class="input-field" name="forum_title" placeholder="Forum Title" required>
+					<br>
+          <br>
+                    <input type="text" class="container" name="forum_message" placeholder="Forum Message" required>
+					<br>
+          
+                    <button type="submit" class="button_forum">Submit</button>
+          </form>
+
+    </div>
+
 		</section>
 
         <!-- ======= Footer ======= -->
@@ -158,9 +175,23 @@
             <p class="copyright">Copyright © 2021. All Right Reserved</p>
         </footer>
         <!-- ======= Footer ======= -->
-		<script src='plugin.js'></script> 
+
+<script src="ckeditor.js"></script>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
 </body>
- 
+
 <script type="text/javascript">
     window.addEventListener("scroll", function () {
       var header = document.getElementById("wrapper_Header");
