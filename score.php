@@ -10,7 +10,7 @@ $username = $user_data['user_name'];
 $query = "SELECT * FROM leaderboard ORDER BY Score DESC";
 $resultLeaderboard = mysqli_query($con, $query);
 
-$query1 = "SELECT * FROM leaderboard WHERE Username = '$username' ORDER BY Date DESC, Time DESC";
+$query1 = "SELECT * FROM leaderboard WHERE Username = '8888' ORDER BY Date DESC, Time DESC";
 $resultPrevious = mysqli_query($con, $query1);
 
 ?>
@@ -22,9 +22,6 @@ $resultPrevious = mysqli_query($con, $query1);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="assets/resources//icon.png">
-
     <title>Play & Learn</title>
     <link rel="stylesheet" href="assets/css/score.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -35,31 +32,56 @@ $resultPrevious = mysqli_query($con, $query1);
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <div id="wrapper_Header">
-    <nav>
-      <input type="checkbox" id="show-search">
-      <input type="checkbox" id="show-menu">
-      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-      <div class="content">
-        <div class="logo"></div>
-        <a href="index.php">
-          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-        </a>
-        <ul class="links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">Fun Fact</a></li>
-          <li><a href="forum.html">Forum</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
-    </nav>
-  </div>
-  <!-- ======= Header ======= -->
+    <div id="wrapper_Header">
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <div class="logo"></div>
+                <a href="index.php">
+                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+                </a>
+                <ul class="links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <a href="#" class="desktop-link">Features</a>
+                        <input type="checkbox" id="show-features">
+                        <label for="show-features">Features</label>
+                        <ul>
+                            <li><a href="#">Drop Menu 1</a></li>
+                            <li><a href="#">Drop Menu 2</a></li>
+                            <li><a href="#">Drop Menu 3</a></li>
+                            <li><a href="#">Drop Menu 4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="desktop-link">Services</a>
+                        <input type="checkbox" id="show-services">
+                        <label for="show-services">Services</label>
+                        <ul>
+                            <li><a href="#">Drop Menu 1</a></li>
+                            <li><a href="#">Drop Menu 2</a></li>
+                            <li><a href="#">Drop Menu 3</a></li>
+                            <li>
+                                <a href="#" class="desktop-link">More Items</a>
+                                <input type="checkbox" id="show-items">
+                                <label for="show-items">More Items</label>
+                                <ul>
+                                    <li><a href="#">Sub Menu 1</a></li>
+                                    <li><a href="#">Sub Menu 2</a></li>
+                                    <li><a href="#">Sub Menu 3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+        </nav>
+    </div>
 
     <div class="hero">
         <div class="score">
@@ -122,7 +144,7 @@ $resultPrevious = mysqli_query($con, $query1);
         </div>
     </div>
     <div class="button">
-        <a class="button-content" href="quiz.html">Try Again</a>
+        <a class="button-content" href="quiz1.php">Try Again</a>
     </div>
 
 

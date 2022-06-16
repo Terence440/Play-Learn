@@ -54,8 +54,13 @@ if (mysqli_num_rows($sql) > 0) {
         <ul class="links">
           <li><a href="index.php">Home</a></li>
           <li><a href="funFact.html">Fun Fact</a></li>
+<<<<<<< HEAD
           <li><a href="forum.php">Forum</a></li>
           <li><a href="quiz.html">Quiz</a></li>
+=======
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="quiz1.php">Quiz</a></li>
+>>>>>>> 08d703a935a668f4d7d2c4fa6e5857bcef4500e9
           <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
       </div>
