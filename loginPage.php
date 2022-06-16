@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="assets/resources//icon.png">
+
   <title>Play & Learn</title>
 
   <link rel="stylesheet" href="assets/css/loginPage.css">
@@ -16,6 +19,7 @@
 </head>
 
 <body>
+  <!-- ======= Header ======= -->
   <div id="wrapper_Header">
     <nav>
       <input type="checkbox" id="show-search">
@@ -28,46 +32,18 @@
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">About</a></li>
-          <li>
-            <a href="#" class="desktop-link">Features</a>
-            <input type="checkbox" id="show-features">
-            <label for="show-features">Features</label>
-            <ul>
-              <li><a href="#">Drop Menu 1</a></li>
-              <li><a href="#">Drop Menu 2</a></li>
-              <li><a href="#">Drop Menu 3</a></li>
-              <li><a href="#">Drop Menu 4</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="desktop-link">Services</a>
-            <input type="checkbox" id="show-services">
-            <label for="show-services">Services</label>
-            <ul>
-              <li><a href="#">Drop Menu 1</a></li>
-              <li><a href="#">Drop Menu 2</a></li>
-              <li><a href="#">Drop Menu 3</a></li>
-              <li>
-                <a href="#" class="desktop-link">More Items</a>
-                <input type="checkbox" id="show-items">
-                <label for="show-items">More Items</label>
-                <ul>
-                  <li><a href="#">Sub Menu 1</a></li>
-                  <li><a href="#">Sub Menu 2</a></li>
-                  <li><a href="#">Sub Menu 3</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">Feedback</a></li>
+          <li><a href="funFact.html">Fun Fact</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
       </div>
       <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
       <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Log Out</button></a>
+      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
     </nav>
   </div>
+  <!-- ======= Header ======= -->
 
   <section class="form_User">
     <div class="form-box">
@@ -87,7 +63,7 @@
           </div>
           <div class="field input">
             <label>Password</label>
-            <input  type="password" name="password" placeholder="Enter your password" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
             <div class="form-pas"><i class="fas fa-eye"></i></div>
           </div>
           <div class="field button">
@@ -110,7 +86,7 @@
           </div>
           <div class="field input">
             <label>Password</label>
-            <input  type="password" name="password" placeholder="Enter your password" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
             <div class="form-pas"><i class="fas fa-eye"></i></div>
           </div>
           <div class="field image">
@@ -216,11 +192,11 @@
   const pswrdField = document.querySelector(".form input[type='password']");
   toggleBtn = document.querySelector(".form-pas i");
 
-  toggleBtn.onclick = ()=>{
-    if(pswrdField.type == "password"){
+  toggleBtn.onclick = () => {
+    if (pswrdField.type == "password") {
       pswrdField.type = "text";
       toggleBtn.classList.add("active");
-    } else{
+    } else {
       pswrdField.type = "password";
       toggleBtn.classList.remove("active");
     }

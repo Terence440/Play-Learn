@@ -7,8 +7,8 @@ if (!isset($_SESSION['unique_id'])) {
 }
 
 include_once "assets/php/config.php";
-$sql = mysqli_query($conn, "SELECT * FROM chat WHERE unique_id = {$_SESSION['unique_id']}");
-if(mysqli_num_rows($sql) > 0){
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+if (mysqli_num_rows($sql) > 0) {
   $user_data = mysqli_fetch_assoc($sql);
 }
 ?>
@@ -21,7 +21,10 @@ if(mysqli_num_rows($sql) > 0){
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+  <link rel="icon" href="assets/resources//icon.png">
+
+  <title>Home</title>
 
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="assets\css\swiper-bundle.min.css">
@@ -50,39 +53,10 @@ if(mysqli_num_rows($sql) > 0){
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="quiz.php">Quiz</a></li>
-          <li>
-            <a href="#" class="desktop-link">Features</a>
-            <input type="checkbox" id="show-features">
-            <label for="show-features">Features</label>
-            <ul>
-              <li><a href="#">Drop Menu 1</a></li>
-              <li><a href="#">Drop Menu 2</a></li>
-              <li><a href="#">Drop Menu 3</a></li>
-              <li><a href="#">Drop Menu 4</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="desktop-link">Services</a>
-            <input type="checkbox" id="show-services">
-            <label for="show-services">Services</label>
-            <ul>
-              <li><a href="#">Drop Menu 1</a></li>
-              <li><a href="#">Drop Menu 2</a></li>
-              <li><a href="#">Drop Menu 3</a></li>
-              <li>
-                <a href="#" class="desktop-link">More Items</a>
-                <input type="checkbox" id="show-items">
-                <label for="show-items">More Items</label>
-                <ul>
-                  <li><a href="#">Sub Menu 1</a></li>
-                  <li><a href="#">Sub Menu 2</a></li>
-                  <li><a href="#">Sub Menu 3</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">Feedback</a></li>
+          <li><a href="funFact.html">Fun Fact</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
       </div>
       <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
@@ -96,7 +70,7 @@ if(mysqli_num_rows($sql) > 0){
   <section id="content_Home">
     <div class="container_Home">
       <div class="row_Home" style="justify-content: center;">
-        <h1>Welcome, <?php echo $user_data['username']; ?></h1>
+        <h1>Welcome, <?php echo $user_data['user_name']; ?></h1>
         <img class="play_and_learn" src="assets/resources/play_and_learn.jpg" alt="play_and_learn">
       </div>
     </div>
@@ -107,159 +81,84 @@ if(mysqli_num_rows($sql) > 0){
         <h1>Functions</h1>
         <div class="slide-content">
           <div class="card-wrapper swiper-wrapper">
+
             <div class="card swiper-slide">
               <div class="image-content">
                 <span class="overlay"></span>
-
                 <div class="card-image">
                   <img src="assets/resources/forum.jpg" alt="" class="card-img">
                 </div>
               </div>
 
               <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                <h2 class="name">Forum</h2>
+                <p class="description">This is a student space for the students to have discussion among each other.</p>
 
-                <button class="button">View More</button>
+                <a href="forum.html">
+                  <button class="button">View More</button>
+                </a>
+
               </div>
             </div>
+
             <div class="card swiper-slide">
               <div class="image-content">
                 <span class="overlay"></span>
-
                 <div class="card-image">
-                  <img src="images/profile2.jpg" alt="" class="card-img">
+                  <img src="assets/resources/fun_fact_function.jpg" alt="" class="card-img">
                 </div>
               </div>
 
               <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                <h2 class="name">Fun Fact</h2>
+                <p class="description">Stop right there! You're about to learn some seriously interesting facts about science,
+                  history, and pop culture that will blow your mind.</p>
 
-                <button class="button">View More</button>
+                <a href="funFact.html">
+                  <button class="button">View More</button>
+                </a>
+
               </div>
             </div>
+
             <div class="card swiper-slide">
               <div class="image-content">
                 <span class="overlay"></span>
-
                 <div class="card-image">
-                  <img src="images/profile3.jpg" alt="" class="card-img">
+                  <img src="assets/resources/quiz_function.jpg" alt="" class="card-img">
                 </div>
               </div>
 
               <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                <h2 class="name">Quiz</h2>
+                <p class="description">Use this funciton to learn anything, anywhere. You can study on your own or engage in group quizzes remotely.</p>
 
-                <button class="button">View More</button>
+                <a href="quiz.php">
+                  <button class="button">View More</button>
+                </a>
+
               </div>
             </div>
+
             <div class="card swiper-slide">
               <div class="image-content">
                 <span class="overlay"></span>
-
                 <div class="card-image">
-                  <img src="images/profile4.jpg" alt="" class="card-img">
+                  <img src="assets/resources/chat_function.jpg" alt="" class="card-img">
                 </div>
               </div>
 
               <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                <h2 class="name">Chat</h2>
+                <p class="description">Having a problem? Come and connect with you friends now and have a discuss with them!</p>
 
-                <button class="button">View More</button>
+                <a href="ChatSystem\chat.php">
+                  <button class="button">View More</button>
+                </a>
+
               </div>
             </div>
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <span class="overlay"></span>
 
-                <div class="card-image">
-                  <img src="images/profile5.jpg" alt="" class="card-img">
-                </div>
-              </div>
-
-              <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                <button class="button">View More</button>
-              </div>
-            </div>
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <span class="overlay"></span>
-
-                <div class="card-image">
-                  <img src="images/profile6.jpg" alt="" class="card-img">
-                </div>
-              </div>
-
-              <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                <button class="button">View More</button>
-              </div>
-            </div>
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <span class="overlay"></span>
-
-                <div class="card-image">
-                  <img src="images/profile7.jpg" alt="" class="card-img">
-                </div>
-              </div>
-
-              <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                <button class="button">View More</button>
-              </div>
-            </div>
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <span class="overlay"></span>
-
-                <div class="card-image">
-                  <img src="images/profile8.jpg" alt="" class="card-img">
-                </div>
-              </div>
-
-              <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                <button class="button">View More</button>
-              </div>
-            </div>
-            <div class="card swiper-slide">
-              <div class="image-content">
-                <span class="overlay"></span>
-
-                <div class="card-image">
-                  <img src="images/profile9.jpg" alt="" class="card-img">
-                </div>
-              </div>
-
-              <div class="card-content">
-                <h2 class="name">David Dell</h2>
-                <p class="description">The lorem text the section that contains header with having open
-                  functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                <button class="button">View More</button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -278,19 +177,38 @@ if(mysqli_num_rows($sql) > 0){
         <input type="radio" name="dot_MeetUs" id="two">
         <div class="main-card_MeetUs">
           <div class="cards_MeetUs">
+
             <div class="card_MeetUs">
               <div class="content_MeetUs">
                 <div class="img_MeetUs">
                   <img src="images/img1.jpg" alt="">
                 </div>
                 <div class="details_MeetUs">
-                  <div class="name_deatilsMeetUs">Andrew Neil</div>
-                  <div class="job_deatilsMeetUs">Web Designer</div>
+                  <div class="name_deatilsMeetUs">Boo Zhan Yi</div>
+                  <!-- <div class="job_deatilsMeetUs">Web Designer</div> -->
                 </div>
                 <div class="media-icons_MeetUs">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/psbsosbsob/"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card_MeetUs">
+              <div class="content_MeetUs">
+                <div class="img_MeetUs">
+                  <img src="images/img1.jpg" alt="">
+                </div>
+                <div class="details_MeetUs">
+                  <div class="name_deatilsMeetUs">Chong Jun Yi</div>
+                  <!-- <div class="job_deatilsMeetUs">Web Designer</div> -->
+                </div>
+                <div class="media-icons_MeetUs">
+                  <a href="https://www.facebook.com/profile.php?id=100013205131188"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/donaldchong666/"><i class="fab fa-instagram"></i></a>
                   <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
               </div>
@@ -301,30 +219,13 @@ if(mysqli_num_rows($sql) > 0){
                   <img src="images/img1.jpg" alt="">
                 </div>
                 <div class="details_MeetUs">
-                  <div class="name_deatilsMeetUs">Andrew Neil</div>
-                  <div class="job_deatilsMeetUs">Web Designer</div>
+                  <div class="name_deatilsMeetUs">Desmond Tee Yu Wei</div>
+                  <!-- <div class="job_deatilsMeetUs">Web Designer</div> -->
                 </div>
                 <div class="media-icons_MeetUs">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/desmond.tee.94"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="card_MeetUs">
-              <div class="content_MeetUs">
-                <div class="img_MeetUs">
-                  <img src="images/img1.jpg" alt="">
-                </div>
-                <div class="details_MeetUs">
-                  <div class="name_deatilsMeetUs">Andrew Neil</div>
-                  <div class="job_deatilsMeetUs">Web Designer</div>
-                </div>
-                <div class="media-icons_MeetUs">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/rynn_desmond/"><i class="fab fa-instagram"></i></a>
                   <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
               </div>
@@ -334,16 +235,16 @@ if(mysqli_num_rows($sql) > 0){
             <div class="card_MeetUs">
               <div class="content_MeetUs">
                 <div class="img_MeetUs">
-                  <img src="images/img1.jpg" alt="">
+                  <img src="assets/resources/yh.JPG" alt="">
                 </div>
                 <div class="details_MeetUs">
-                  <div class="name_deatilsMeetUs">Andrew Neil</div>
-                  <div class="job_deatilsMeetUs">Web Designer</div>
+                  <div class="name_deatilsMeetUs">Gan Yu Hong</div>
+                  <!-- <div class="job_deatilsMeetUs">Web Designer</div> -->
                 </div>
                 <div class="media-icons_MeetUs">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/terence.gan.01/"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/terencegan.yh/"><i class="fab fa-instagram"></i></a>
                   <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
               </div>
@@ -354,13 +255,13 @@ if(mysqli_num_rows($sql) > 0){
                   <img src="images/img1.jpg" alt="">
                 </div>
                 <div class="details_MeetUs">
-                  <div class="name_deatilsMeetUs">Andrew Neil</div>
-                  <div class="job_deatilsMeetUs">Web Designer</div>
+                  <div class="name_deatilsMeetUs">Yaap Yong Ping</div>
+                  <!-- <div class="job_deatilsMeetUs">Web Designer</div> -->
                 </div>
                 <div class="media-icons_MeetUs">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/yongping.yaap"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/ypypyypxd/"><i class="fab fa-instagram"></i></a>
                   <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
               </div>

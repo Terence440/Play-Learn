@@ -7,7 +7,7 @@
             $status = "Offline now";
             // once user logout then update the status to offline and in the login form
             // we will again update the status to active now if user logged in succesfully
-            $sql = mysqli_query($conn, "UPDATE chat SET status = '{$status}' WHERE unique_id={$_GET['logout_id']}");
+            $sql = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE unique_id={$_GET['logout_id']}");
             if($sql){
                 session_unset();
                 session_destroy();
