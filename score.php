@@ -1,3 +1,20 @@
+<?php
+
+session_start();
+include("connection.php");
+include("function.php");
+
+$user_data = check_login($con);
+$username = $user_data['user_name'];
+
+$query = "SELECT * FROM leaderboard ORDER BY Score DESC";
+$resultLeaderboard = mysqli_query($con, $query);
+
+$query1 = "SELECT * FROM leaderboard WHERE Username = '$username' ORDER BY Date DESC, Time DESC";
+$resultPrevious = mysqli_query($con, $query1);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,60 +64,67 @@
     <div class="hero">
         <div class="score">
             <h1>Your Score</h1>
+            <P><?php if ($previous_data = mysqli_fetch_assoc($resultPrevious)) {
+                ?>
+                    <?php echo $previous_data['Score']; ?>
+                <?php
+                }
+                ?></p>
             <h1>Your Previous Score</h1>
-            <br>
             <table class="scoreTable">
                 <thead>
                     <tr>
                         <th>Date</th>
+                        <th>Time</th>
                         <th>Score</th>
-                        <th>Time Taken</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
+                    <?php while ($previous_data = mysqli_fetch_assoc($resultPrevious)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $previous_data['Date']; ?></td>
+                            <td><?php echo $previous_data['Time']; ?></td>
+                            <td><?php echo $previous_data['Score']; ?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
         <div class="leaderboard">
             <h1>leaderboard</h1>
             <br>
-            <table class ="leaderboardTable">
+            <table class="leaderboardTable">
                 <thead>
                     <tr>
                         <th>Username</th>
+                        <th>Date</th>
+                        <th>Time</th>
                         <th>Score</th>
-                        <th>Time Taken</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
-                    </tr>
+                    <?php while ($leaderboard_data = mysqli_fetch_assoc($resultLeaderboard)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $leaderboard_data['Username']; ?></td>
+                            <td><?php echo $leaderboard_data['Date']; ?></td>
+                            <td><?php echo $leaderboard_data['Time']; ?></td>
+                            <td><?php echo $leaderboard_data['Score']; ?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
-        <div class="button">
-            <a class="button-content" href="quiz.html">Try Again</a>
-        </div>
     </div>
+    <div class="button">
+        <a class="button-content" href="quiz.html">Try Again</a>
+    </div>
+
 
 
 

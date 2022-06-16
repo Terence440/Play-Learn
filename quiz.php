@@ -1,3 +1,46 @@
+<?php
+
+session_start();
+include("connection.php");
+include("function.php");
+
+$user_data = check_login($con);
+$username = $user_data['user_name'];
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    date_default_timezone_set("Asia/Kuala_Lumpur");
+    $answer1 = $_POST['q1'];
+    $answer2 = $_POST['q2'];
+    $correct = 0;
+    $date = date("jS \of F Y");
+    $time = date("h:i:s A");
+    if (isset($_POST["q1"])) {
+        $answer1 = $_POST["q1"];
+        if ($answer1 == "{(1,-5), (-1,6), (1,5), (6,-3)}") {
+            $correct++;
+        }
+    }
+    if (isset($_POST["q2"])) {
+        $answer2 = $_POST["q2"];
+        if ($answer2 == "Domain") {
+            $correct++;
+        }
+    }
+
+    if (!empty($answer1) && !empty($answer2)) {
+        // save to database;
+        $query = "INSERT INTO leaderboard(Username, Question1, Question2, Score, Date, Time) VALUES ('$usermame', '$answer1', '$answer2', '$correct', '$date' ,'$time')";
+
+        mysqli_query($con, $query);
+
+        header("Location: score.php");
+    } else {
+        echo "Please enter some valid information.";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,19 +92,21 @@
             <p>1. The quiz contain olny 2 question</p>
             <p>2. You have 1 minute to answer all the question</p>
             <p>3. 1 questain cointain 1 mark</p>
+            <p>4. No mark given if you did not click submit</p>
             <a href="#" id="start_btn" class="btn_start" onclick="startQuiz()">Start</a>
         </div>
     </div>
 
     <div class="time-bg">
-            <div class="time-content">
-                <p id="countdown">1:00</p>
-            </div>
+        <div class="time-content">
+            <p id="countdown">1:00</p>
         </div>
+    </div>
 
     <div id="quiz">
-        <form id="form" action="score.php" method="get">
+        <form id="form" method="post">
             <div class="wrapper1">
+                <
                 <p class="question">1. Which relation is NOT a function?</p>
                 <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
                 <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
@@ -108,42 +153,12 @@
                     <span>Relation</span>
                 </label>
             </div>
-            <!--<div class="content" data-aos="fade-up" data-aos-delay="300">
-                <p class="question">1. Which relation is NOT a function?</p>
-                <p class="answer"><input type="radio" name="question1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">{(1,-5), (3,1), (-5,4), (4,-2)}</p>
-                <p class="answer"><input type="radio" name="question1" value="{(2,7), (3,7), (4,7), (5,8)}">{(2,7), (3,7), (4,7), (5,8)}</p>
-                <p class="answer"><input type="radio" name="question1" value="{(3,-2), (5,-6), (7,7), (8,8)}">{(3,-2), (5,-6), (7,7), (8,8)}</p>
-                <p class="answer"><input type="radio" name="question1" value="{(1,-5), (-1,6), (1,5), (6,-3)}">{(1,-5), (-1,6), (1,5), (6,-3)}</p>
-            </div>
-
-            <div class="content1" data-aos="fade-up" data-aos-delay="300">
-                <p class="question">2. All of the x values or inputs are called what?</p>
-                <p class="answer"><input type="radio" name="question2" value="Domain">Domain</p>
-                <p class="answer"><input type="radio" name="question2" value="Function">Function</p>
-                <p class="answer"><input type="radio" name="question2" value="Range">Range</p>
-                <p class="answer"><input type="radio" name="question2" value="Relation">Relation</p>
-            </div>-->
             <div class="submit">
                 <input type="submit" id="btn_submit" class="btn_submit" value="Submit">
             </div>
         </form>
     </div>
 
-    <?php
-    $correct = 0;
-    if (isset($_GET["q1"])) {
-        $answer1 = $_GET["q1"];
-        if ($answer1 == "{(1,-5), (-1,6), (1,5), (6,-3)}") {
-            $correct++;
-        }
-    }
-    if (isset($_GET["q2"])) {
-        $answer2 = $_GET["q2"];
-        if ($answer2 == "Domain") {
-            $correct++;
-        }
-    }
-    ?>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -208,6 +223,8 @@
         var header = document.querySelector("header");
         header.classList.toggle("sticky", window.scrollY > 0);
     })
+</script>
+
 </script>
 
 </html>
