@@ -59,9 +59,15 @@ if (mysqli_num_rows($sql) > 0) {
           <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
       </div>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
+      <?php if ($user_data['user_name'] != null) : ?>
+        <div>
+          <a class="cta" href="logout.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
+          <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+        </div>
+        <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
+      <?php else : ?>
+        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <?php endif; ?>
     </nav>
   </div>
   <!-- ======= Header ======= -->
