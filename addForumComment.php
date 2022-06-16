@@ -4,9 +4,26 @@
     include("connection.php");
     include("function.php");   
 
-?>
+  if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-<!DOCTYPE html>
+    $forum_replies_message = $_POST['forum_replies_message'];
+    $forum_id =  $_POST['forum_id'];
+    $author_username =  $_POST['author_username'];
+    // save to database;
+    $query = "INSERT INTO forum_replies(forum_id, forum_replies_username, forum_replies_message) VALUES ('$forum_id', '$author_username', '$forum_replies_message')";
+
+    mysqli_query($con, $query);
+
+    header("Location: forum.php");
+  } 
+
+  else {
+    echo "Please enter some valid information.";
+  }
+
+  ?>
+
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/forum.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+	<link type="text/css" href="assets/css/sample.css" rel="stylesheet" media="screen" />
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -74,90 +92,7 @@
         </nav>
       </div>
       
-		<!-- ======content section/body=====-->
-<?php
-    $forum_id =  $_POST['forum_id'];
-
-          $query = "SELECT * FROM forum WHERE forum_id = '$forum_id' LIMIT 1";
-          $resultForum = mysqli_query($con,$query);
-          
-          if(mysqli_num_rows($resultForum) > 0){
-                    $this_forum_data = mysqli_fetch_assoc($resultForum);            
-            }              
-    
-?>
-
-		<section class="forum">
-		<div class="content_forum">
-            <h2>Forum Details</h2>
-			<a href="forum.php" class="button_forum"> Back </a>
-        </div>
-			<div class="box_forum">
-				<h3><?php echo $this_forum_data['forum_title']; ?></h3>
-				<p><?php echo $this_forum_data['forum_message']; ?>
-				</p>
-        <p><?php echo $this_forum_data['forum_id']; ?>
-				</p>
-        <p><?php echo $this_forum_data['author_username']; ?>
-				</p>
-				<br>
-			</div>
-			
-			<div class = "NewForumForm">
-
-          <form class="inputBox" action="addForumComment.php" method="post">
-                    <h2>Add Comments:</h2>
-					<br>
-                    <input type="text" class="input-field" name="forum_replies_message" placeholder="Comment Here" required>
-                    <input type="hidden" name="forum_id" value="<?php echo $this_forum_data['forum_id']; ?>"/>
-                    <input type="hidden" name="author_username" value="<?php echo $this_forum_data['author_username']; ?>"/>
-                    <button type="submit" class="button_forum">Submit</button>
-          </form>
-
-    </div>
-
-    <?php 
-          $forum_id = $this_forum_data['forum_id'];
-          $query = "SELECT * FROM forum_replies WHERE forum_id = '$forum_id' ";
-          $resultForumReplies = mysqli_query($con,$query);
-          $forum_replies_data = array();
-          if(mysqli_num_rows($resultForumReplies) > 0){
-                while($row = mysqli_fetch_assoc($resultForumReplies)){
-                    $forum_replies_data[] = $row;
-                }
-            }     
-    ?>
-
-			<div class="box_forum">
-				<h4>Comments: </h4>
-				<br>
-				<?php 
-        //if(mysqli_num_rows($resultForumReplies) > 0){
-          //while($row = mysqli_fetch_assoc($resultForumReplies)){
-          //          echo $forum_replies_data['forum_replies_username'];
-            //        echo $forum_replies_data['forum_replies_time'];
-          //          echo $forum_replies_data['forum_replies_message'];
-           //     }
-        //}
-       // else{
-         // echo "No comments yet.";
-        //}
-        foreach ($forum_replies_data as $data) {
-          echo $data['forum_replies_username'];
-          echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
-          echo $data['forum_replies_time'];
-          echo "<br>";
-          echo $data['forum_replies_message'];
-          echo "<br>";
-          echo "<br>";
-        }
-        ?>
-				<br>
-  		</div>
-     
-		</section>    
-
-        <!-- ======= Footer ======= -->
+       <!-- ======= Footer ======= -->
         <footer id="footer">
             <div class="container_footer">
                 <div class="row_footer">
@@ -205,9 +140,23 @@
             <p class="copyright">Copyright © 2021. All Right Reserved</p>
         </footer>
         <!-- ======= Footer ======= -->
-		<script src='plugin.js'></script> 
+
+<script src="ckeditor.js"></script>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
 </body>
- 
+
 <script type="text/javascript">
     window.addEventListener("scroll", function () {
       var header = document.getElementById("wrapper_Header");
