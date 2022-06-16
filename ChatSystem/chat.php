@@ -15,6 +15,9 @@ if (!isset($_SESSION['unique_id'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="assets/resources//icon.png">
+
     <title>Play & Learn</title>
 
     <link rel="stylesheet" href="../assets/css/chatSystem.css">
@@ -26,6 +29,7 @@ if (!isset($_SESSION['unique_id'])) {
 
 <body>
 
+    <!-- ======= Header ======= -->
     <div id="wrapper_Header">
         <nav>
             <input type="checkbox" id="show-search">
@@ -33,49 +37,23 @@ if (!isset($_SESSION['unique_id'])) {
             <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
             <div class="content">
                 <div class="logo"></div>
-                <a href="../index.php">
+                <a href="index.php">
                     <img id="logo" src="..\\assets\\resources\\logo_white.png" alt="logo">
                 </a>
                 <ul class="links">
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li>
-                        <a href="#" class="desktop-link">Features</a>
-                        <input type="checkbox" id="show-features">
-                        <label for="show-features">Features</label>
-                        <ul>
-                            <li><a href="#">Drop Menu 1</a></li>
-                            <li><a href="#">Drop Menu 2</a></li>
-                            <li><a href="#">Drop Menu 3</a></li>
-                            <li><a href="#">Drop Menu 4</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="desktop-link">Services</a>
-                        <input type="checkbox" id="show-services">
-                        <label for="show-services">Services</label>
-                        <ul>
-                            <li><a href="#">Drop Menu 1</a></li>
-                            <li><a href="#">Drop Menu 2</a></li>
-                            <li><a href="#">Drop Menu 3</a></li>
-                            <li>
-                                <a href="#" class="desktop-link">More Items</a>
-                                <input type="checkbox" id="show-items">
-                                <label for="show-items">More Items</label>
-                                <ul>
-                                    <li><a href="#">Sub Menu 1</a></li>
-                                    <li><a href="#">Sub Menu 2</a></li>
-                                    <li><a href="#">Sub Menu 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Feedback</a></li>
+                    <li><a href="funFact.html">Fun Fact</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="contact_us.html">Contact Us</a></li>
                 </ul>
             </div>
-            <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
+            <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+            <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
+            <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
         </nav>
     </div>
+    <!-- ======= Header ======= -->
 
     <div class="wrapper">
         <div class="row">
@@ -83,7 +61,7 @@ if (!isset($_SESSION['unique_id'])) {
                 <section class="users">
                     <?php
                     include_once "../assets/php/config.php";
-                    $sql = mysqli_query($conn, "SELECT * FROM chat WHERE unique_id = {$_SESSION['unique_id']}");
+                    $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
                     if (mysqli_num_rows($sql) > 0) {
                         $row = mysqli_fetch_assoc($sql);
                     }
@@ -93,7 +71,7 @@ if (!isset($_SESSION['unique_id'])) {
                             <img src="../assets/php/images/<?php echo $row['img']; ?>" alt="">
                             <div class="details">
                                 <?php  ?>
-                                <span><?php echo $row['username']; ?></span>
+                                <span><?php echo $row['user_name']; ?></span>
                                 <p><?php echo $row['status']; ?></p>
                             </div>
                         </div>
@@ -113,7 +91,7 @@ if (!isset($_SESSION['unique_id'])) {
                     <?php
                     if (isset($_GET['user_id'])) {
                         $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
-                        $sql_chat = mysqli_query($conn, "SELECT * FROM chat WHERE unique_id = {$user_id}");
+                        $sql_chat = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
                         if (mysqli_num_rows($sql_chat) > 0) {
                             $user_data_chat = mysqli_fetch_assoc($sql_chat);
                     ?>
@@ -121,34 +99,34 @@ if (!isset($_SESSION['unique_id'])) {
                                 <!-- <a href="#" class="black-icon"><i class="fas fa-arrow-left"></i></a> -->
                                 <img src="../assets/php/images/<?php echo $user_data_chat['img']; ?>" alt="">
                                 <div class="details">
-                                    <span><?php echo $user_data_chat['username']; ?></span>
+                                    <span><?php echo $user_data_chat['user_name']; ?></span>
                                     <p><?php echo $user_data_chat['status']; ?></p>
                                 </div>
                             </header>
 
-                    <div class="chat-box">
+                            <div class="chat-box">
 
-                    </div>
-                    <form action="#" class="typing-area">
-                        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
-                        <input type="text" name="message" class="input-field-chat" placeholder="Type a message here..." autocomplete="off">
-                        <button><i class="fab fa-telegram-plane"></i></button>
-                    </form>
+                            </div>
+                            <form action="#" class="typing-area">
+                                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+                                <input type="text" name="message" class="input-field-chat" placeholder="Type a message here..." autocomplete="off">
+                                <button><i class="fab fa-telegram-plane"></i></button>
+                            </form>
+
+                        <?php
+                        }
+                    } else {
+                        ?>
+
+                        <header>
+                            <!-- <a href="#" class="black-icon"><i class="fas fa-arrow-left"></i></a> -->
+                            <div style="margin: 0 auto; margin-top: 280px">
+                                <p>No chat is selected..</p>
+                            </div>
+                        </header>
 
                     <?php
-                        }
-                    } else{
-                    ?>
-
-                    <header>
-                        <!-- <a href="#" class="black-icon"><i class="fas fa-arrow-left"></i></a> -->
-                        <div style="margin: 0 auto; margin-top: 280px">
-                            <p>No chat is selected..</p>
-                        </div>
-                    </header>
-
-                    <?php
-                        }
+                    }
                     ?>
                 </section>
             </div>

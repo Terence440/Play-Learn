@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_assoc($sql)) {
                     <div class="content">
                     <img src="../assets/php/images/' . $row['img'] . '" alt="">
                     <div class="details">
-                        <span>' . $row['username'] . '</span>
+                        <span>' . $row['user_name'] . '</span>
                         <p>' . $you . $msg . '</p>
                     </div>
                     </div>
