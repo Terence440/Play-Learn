@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <body>
 
-<<<<<<< HEAD:addNewForum.html
   <!-- ======= Header ======= -->
   <div id="wrapper_Header">
     <nav>
@@ -120,87 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       </form>
     </div>
   </section>
-=======
-    <div id="wrapper_Header">
-        <nav>
-          <input type="checkbox" id="show-search">
-          <input type="checkbox" id="show-menu">
-          <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-          <div class="content">
-            <div class="logo"></div>
-            <a href="index.html">
-              <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-            </a>
-            <ul class="links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li>
-                <a href="#" class="desktop-link">Features</a>
-                <input type="checkbox" id="show-features">
-                <label for="show-features">Features</label>
-                <ul>
-                  <li><a href="#">Drop Menu 1</a></li>
-                  <li><a href="#">Drop Menu 2</a></li>
-                  <li><a href="#">Drop Menu 3</a></li>
-                  <li><a href="#">Drop Menu 4</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#" class="desktop-link">Services</a>
-                <input type="checkbox" id="show-services">
-                <label for="show-services">Services</label>
-                <ul>
-                  <li><a href="#">Drop Menu 1</a></li>
-                  <li><a href="#">Drop Menu 2</a></li>
-                  <li><a href="#">Drop Menu 3</a></li>
-                  <li>
-                    <a href="#" class="desktop-link">More Items</a>
-                    <input type="checkbox" id="show-items">
-                    <label for="show-items">More Items</label>
-                    <ul>
-                      <li><a href="#">Sub Menu 1</a></li>
-                      <li><a href="#">Sub Menu 2</a></li>
-                      <li><a href="#">Sub Menu 3</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#">Feedback</a></li>
-            </ul>
-          </div>
-          <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-        </nav>
-      </div>
-      
-		<!-- ======content section/body=====-->
-		<section class="forum">
-		<div class="content_forum">
-            <h2>Add New Forum</h2>
-			<a href="forum.php" class="button_forum"> Back </a>
-			<br>
-    </div>
-    
-    <div class = "NewForumForm">
-
-          <form class="inputBox" method="post">
-                    <h2>New Forum</h2>
-					<br>
-                    <input type="text" class="input-field" name="author_name" placeholder="Name" required>
-					<br>
-          <br>
-                    <input type="text" class="input-field" name="forum_title" placeholder="Forum Title" required>
-					<br>
-          <br>
-                    <input type="text" class="container" name="forum_message" placeholder="Forum Message" required>
-					<br>
-          
-                    <button type="submit" class="button_forum">Submit</button>
-          </form>
-
-    </div>
-
-		</section>
->>>>>>> a0c64d3a92361641d06fc04c1b9a30647b664e88:addNewForum.php
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
