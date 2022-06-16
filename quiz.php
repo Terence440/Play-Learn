@@ -4,8 +4,8 @@ session_start();
 include("connection.php");
 include("function.php");
 
-$user_data = check_login($con);
-$username = $user_data['user_name'];
+//$user_data = check_login($con);
+//$username = $user_data['user_name'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (!empty($answer1) && !empty($answer2)) {
         // save to database;
-        $query = "INSERT INTO leaderboard(Username, Question1, Question2, Score, Date, Time) VALUES ('$usermame', '$answer1', '$answer2', '$correct', '$date' ,'$time')";
+        $query = "INSERT INTO leaderboard(Username, Question1, Question2, Score, Date, Time) VALUES ('8888', '$answer1', '$answer2', '$correct', '$date' ,'$time')";
 
         mysqli_query($con, $query);
 

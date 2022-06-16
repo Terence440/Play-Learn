@@ -55,7 +55,7 @@ if (mysqli_num_rows($sql) > 0) {
           <li><a href="index.php">Home</a></li>
           <li><a href="funFact.html">Fun Fact</a></li>
           <li><a href="forum.html">Forum</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="quiz1.php">Quiz</a></li>
           <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
       </div>
