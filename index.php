@@ -222,7 +222,7 @@ if (mysqli_num_rows($sql) > 0) {
             <div class="card_MeetUs">
               <div class="content_MeetUs">
                 <div class="img_MeetUs">
-                  <img src="images/img1.jpg" alt="">
+                  <img src="assets/resources/desmond.jpeg" alt="">
                 </div>
                 <div class="details_MeetUs">
                   <div class="name_deatilsMeetUs">Desmond Tee Yu Wei</div>
