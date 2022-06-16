@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-include("connection.php");
+include("assets/php/config.php");
 include("function.php");
 
-//$user_data = check_login($con);
-//$username = $user_data['user_name'];
+$user_data = check_login($conn);
+$username = $user_data['user_name'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div id="quiz">
         <form id="form" method="post">
             <div class="wrapper1">
-                <
+                
                 <p class="question">1. Which relation is NOT a function?</p>
                 <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
                 <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
