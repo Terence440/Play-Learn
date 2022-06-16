@@ -34,6 +34,7 @@
                                     if(mysqli_num_rows($select_sql2) > 0){
                                         $result = mysqli_fetch_assoc($select_sql2);
                                         $_SESSION['userData'] = $result;
+                                        $_SESSION['user_id'] = $result['id'];
                                         $_SESSION['unique_id'] = $result['unique_id'];
                                         echo "success";
                                     }else{

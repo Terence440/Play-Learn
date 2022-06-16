@@ -1,17 +1,17 @@
 <?php
 
 session_start();
-include("connection.php");
+include("assets/php/config.php");
 include("function.php");
 
-$user_data = check_login($con);
+$user_data = check_login($conn);
 $username = $user_data['user_name'];
 
 $query = "SELECT * FROM leaderboard ORDER BY Score DESC";
-$resultLeaderboard = mysqli_query($con, $query);
+$resultLeaderboard = mysqli_query($conn, $query);
 
 $query1 = "SELECT * FROM leaderboard WHERE Username = '8888' ORDER BY Date DESC, Time DESC";
-$resultPrevious = mysqli_query($con, $query1);
+$resultPrevious = mysqli_query($conn, $query1);
 
 ?>
 

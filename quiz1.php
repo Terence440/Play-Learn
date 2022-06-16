@@ -10,40 +10,38 @@
 
     <title>Play & Learn</title>
     <link rel="stylesheet" href="assets/css/quiz.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <div id="wrapper_Header">
-    <nav>
-      <input type="checkbox" id="show-search">
-      <input type="checkbox" id="show-menu">
-      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-      <div class="content">
-        <div class="logo"></div>
-        <a href="index.php">
-          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-        </a>
-        <ul class="links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">Fun Fact</a></li>
-          <li><a href="forum.html">Forum</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
-    </nav>
-  </div>
-  <!-- ======= Header ======= -->
-
+    <!-- ======= Header ======= -->
+    <div id="wrapper_Header">
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <div class="logo"></div>
+                <a href="index.php">
+                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+                </a>
+                <ul class="links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="funFact.html">Fun Fact</a></li>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+            <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
+            <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
+        </nav>
+    </div>
+    <!-- ======= Header ======= -->
 
     <!-- ======= Slideshow ======= -->
     <div class="slideshow">
@@ -86,7 +84,7 @@
         </div>
     </div>
 
-    <div id="quiz" >
+    <div id="quiz">
         <div class="content" data-aos="fade-up" data-aos-delay="300">
             <a href="#" class="button"><img src="assets/resources/subject1.png" class="image" alt=""></a>
             <a href="#" class="button"><img src="assets/resources/subject2.png" class="image" alt=""></a>
@@ -172,7 +170,7 @@
 <script src="assets/javascript/quiz.js"></script>
 
 <script type="text/javascript">
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function() {
         var header = document.getElementById("wrapper_Header");
         header.classList.toggle("sticky", window.scrollY > 0);
 

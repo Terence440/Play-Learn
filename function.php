@@ -1,12 +1,12 @@
 <?php
-function check_login($con)
+function check_login($conn)
 {
     // Checking whether userID is exist
     if (isset($_SESSION['user_id'])) {
         $id = $_SESSION['user_id'];
-        $query = "SELECT * FROM users WHERE user_id = '$id' LIMIT 1";
+        $query = "SELECT * FROM users WHERE id = '$id' LIMIT 1";
 
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
             // Save the data into an array
@@ -16,8 +16,8 @@ function check_login($con)
     }
 
     // redirect to login
-    //header("Location: loginPage.php");
-    //die;
+    header("Location: loginPage.php");
+    die;
 }
 
 function random_num($length)

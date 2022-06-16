@@ -1,10 +1,10 @@
 <?php
 
     session_start();
-    include("connection.php");
+    include("assets/php/config.php");
     include("function.php");
 
-    $user_data = check_login($con);
+    $user_data = check_login($conn);
 
     $author_username = $user_data['user_name'];
 
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // save to database;
     $query = "INSERT INTO forum(author_username, author_name, forum_title, forum_message) VALUES ('$author_username', '$author_name', '$forum_title', '$forum_message')";
 
-    mysqli_query($con, $query);
+    mysqli_query($conn, $query);
 
     header("Location: forum.php");
   } 
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <section class="forum">
     <div class="content_forum">
       <h2>Add New Forum</h2>
-      <a href="forum.html" class="button_forum"> Back </a>
+      <a href="forum.php" class="button_forum"> Back </a>
       <br>
     </div>
     <div class="NewForumForm">
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           <br>
           <div class="container">
             <div id="editor">
-              <textarea name="txtEditor"></textarea>
+              <textarea name="txtEditor" rows="4" cols="50"></textarea>
             </div>
           </div>
           <br>
