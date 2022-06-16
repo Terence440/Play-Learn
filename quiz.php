@@ -1,3 +1,46 @@
+<?php
+
+session_start();
+include("connection.php");
+include("function.php");
+
+//$user_data = check_login($con);
+//$username = $user_data['user_name'];
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    date_default_timezone_set("Asia/Kuala_Lumpur");
+    $answer1 = $_POST['q1'];
+    $answer2 = $_POST['q2'];
+    $correct = 0;
+    $date = date("jS \of F Y");
+    $time = date("h:i:s A");
+    if (isset($_POST["q1"])) {
+        $answer1 = $_POST["q1"];
+        if ($answer1 == "{(1,-5), (-1,6), (1,5), (6,-3)}") {
+            $correct++;
+        }
+    }
+    if (isset($_POST["q2"])) {
+        $answer2 = $_POST["q2"];
+        if ($answer2 == "Domain") {
+            $correct++;
+        }
+    }
+
+    if (!empty($answer1) && !empty($answer2)) {
+        // save to database;
+        $query = "INSERT INTO leaderboard(Username, Question1, Question2, Score, Date, Time) VALUES ('8888', '$answer1', '$answer2', '$correct', '$date' ,'$time')";
+
+        mysqli_query($con, $query);
+
+        header("Location: score.php");
+    } else {
+        echo "Please enter some valid information.";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +48,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="assets/resources//icon.png">
+
     <title>Play & Learn</title>
     <link rel="stylesheet" href="assets/css/quiz_Ques.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -15,75 +61,52 @@
 </head>
 
 <body>
-    <div id="wrapper_Header">
-        <nav>
-            <input type="checkbox" id="show-search">
-            <input type="checkbox" id="show-menu">
-            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-            <div class="content">
-                <div class="logo"></div>
-                <a href="index.php">
-                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-                </a>
-                <ul class="links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li>
-                        <a href="#" class="desktop-link">Features</a>
-                        <input type="checkbox" id="show-features">
-                        <label for="show-features">Features</label>
-                        <ul>
-                            <li><a href="#">Drop Menu 1</a></li>
-                            <li><a href="#">Drop Menu 2</a></li>
-                            <li><a href="#">Drop Menu 3</a></li>
-                            <li><a href="#">Drop Menu 4</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="desktop-link">Services</a>
-                        <input type="checkbox" id="show-services">
-                        <label for="show-services">Services</label>
-                        <ul>
-                            <li><a href="#">Drop Menu 1</a></li>
-                            <li><a href="#">Drop Menu 2</a></li>
-                            <li><a href="#">Drop Menu 3</a></li>
-                            <li>
-                                <a href="#" class="desktop-link">More Items</a>
-                                <input type="checkbox" id="show-items">
-                                <label for="show-items">More Items</label>
-                                <ul>
-                                    <li><a href="#">Sub Menu 1</a></li>
-                                    <li><a href="#">Sub Menu 2</a></li>
-                                    <li><a href="#">Sub Menu 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Feedback</a></li>
-                </ul>
-            </div>
-            <a class="cta" href="loginPage.html"><button id="btn_SignIn">Sign In</button></a>
-        </nav>
-    </div>
+  <!-- ======= Header ======= -->
+  <div id="wrapper_Header">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+        <div class="logo"></div>
+        <a href="index.php">
+          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+        </a>
+        <ul class="links">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="funFact.html">Fun Fact</a></li>
+          <li><a href="forum.html">Forum</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
+      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
+    </nav>
+  </div>
+  <!-- ======= Header ======= -->
 
     <div class="modal-bg">
         <div class="modal-content">
             <p>1. The quiz contain olny 2 question</p>
             <p>2. You have 1 minute to answer all the question</p>
             <p>3. 1 questain cointain 1 mark</p>
+            <p>4. No mark given if you did not click submit</p>
             <a href="#" id="start_btn" class="btn_start" onclick="startQuiz()">Start</a>
         </div>
     </div>
 
     <div class="time-bg">
-            <div class="time-content">
-                <p id="countdown">1:00</p>
-            </div>
+        <div class="time-content">
+            <p id="countdown">1:00</p>
         </div>
+    </div>
 
     <div id="quiz">
-        <form id="form" action="score.php" method="get">
+        <form id="form" method="post">
             <div class="wrapper1">
+                <
                 <p class="question">1. Which relation is NOT a function?</p>
                 <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
                 <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
@@ -130,42 +153,12 @@
                     <span>Relation</span>
                 </label>
             </div>
-            <!--<div class="content" data-aos="fade-up" data-aos-delay="300">
-                <p class="question">1. Which relation is NOT a function?</p>
-                <p class="answer"><input type="radio" name="question1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">{(1,-5), (3,1), (-5,4), (4,-2)}</p>
-                <p class="answer"><input type="radio" name="question1" value="{(2,7), (3,7), (4,7), (5,8)}">{(2,7), (3,7), (4,7), (5,8)}</p>
-                <p class="answer"><input type="radio" name="question1" value="{(3,-2), (5,-6), (7,7), (8,8)}">{(3,-2), (5,-6), (7,7), (8,8)}</p>
-                <p class="answer"><input type="radio" name="question1" value="{(1,-5), (-1,6), (1,5), (6,-3)}">{(1,-5), (-1,6), (1,5), (6,-3)}</p>
-            </div>
-
-            <div class="content1" data-aos="fade-up" data-aos-delay="300">
-                <p class="question">2. All of the x values or inputs are called what?</p>
-                <p class="answer"><input type="radio" name="question2" value="Domain">Domain</p>
-                <p class="answer"><input type="radio" name="question2" value="Function">Function</p>
-                <p class="answer"><input type="radio" name="question2" value="Range">Range</p>
-                <p class="answer"><input type="radio" name="question2" value="Relation">Relation</p>
-            </div>-->
             <div class="submit">
                 <input type="submit" id="btn_submit" class="btn_submit" value="Submit">
             </div>
         </form>
     </div>
 
-    <?php
-    $correct = 0;
-    if (isset($_GET["q1"])) {
-        $answer1 = $_GET["q1"];
-        if ($answer1 == "{(1,-5), (-1,6), (1,5), (6,-3)}") {
-            $correct++;
-        }
-    }
-    if (isset($_GET["q2"])) {
-        $answer2 = $_GET["q2"];
-        if ($answer2 == "Domain") {
-            $correct++;
-        }
-    }
-    ?>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -230,6 +223,8 @@
         var header = document.querySelector("header");
         header.classList.toggle("sticky", window.scrollY > 0);
     })
+</script>
+
 </script>
 
 </html>
