@@ -1,9 +1,16 @@
 <?php
 
 session_start();
-include("assets/php/config.php");
-include("function.php");
 
+if (!isset($_SESSION['unique_id'])) {
+  header("Location: loginPage.php");
+}
+
+include_once "assets/php/config.php";
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+if (mysqli_num_rows($sql) > 0) {
+  $user_data = mysqli_fetch_assoc($sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +43,21 @@ include("function.php");
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">Fun Fact</a></li>
+          <li><a href="funFact.php">Fun Fact</a></li>
           <li><a href="forum.php">Forum</a></li>
           <li><a href="quiz1.php">Quiz</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
+          <li><a href="contact_us.php">Contact Us</a></li>
         </ul>
       </div>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
+      <?php if ($user_data['user_name'] != null) : ?>
+        <div>
+          <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
+          <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+        </div>
+        <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
+      <?php else : ?>
+        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <?php endif; ?>
     </nav>
   </div>
   <!-- ======= Header ======= -->

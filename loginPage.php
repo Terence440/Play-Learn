@@ -32,15 +32,13 @@
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">Fun Fact</a></li>
-          <li><a href="forum.html">Forum</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
+          <li><a href="funFact.php">Fun Fact</a></li>
+          <li><a href="forum.php">Forum</a></li>
+          <li><a href="quiz.php">Quiz</a></li>
+          <li><a href="contact_us.php">Contact Us</a></li>
         </ul>
       </div>
       <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
     </nav>
   </div>
   <!-- ======= Header ======= -->

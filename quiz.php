@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (!empty($answer1) && !empty($answer2)) {
         // save to database;
-        $query = "INSERT INTO leaderboard(Username, Question1, Question2, Score, Date, Time) VALUES ('8888', '$answer1', '$answer2', '$correct', '$date' ,'$time')";
+        $query = "INSERT INTO leaderboard(Username, Question1, Question2, Score, Date, Time) VALUES ('$username', '$answer1', '$answer2', '$correct', '$date' ,'$time')";
 
-        mysqli_query($con, $query);
+        mysqli_query($conn, $query);
 
         header("Location: score.php");
     } else {
@@ -61,31 +61,37 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
-  <!-- ======= Header ======= -->
-  <div id="wrapper_Header">
-    <nav>
-      <input type="checkbox" id="show-search">
-      <input type="checkbox" id="show-menu">
-      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-      <div class="content">
-        <div class="logo"></div>
-        <a href="index.php">
-          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-        </a>
-        <ul class="links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">Fun Fact</a></li>
-          <li><a href="forum.html">Forum</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-      <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
-    </nav>
-  </div>
-  <!-- ======= Header ======= -->
+    <!-- ======= Header ======= -->
+    <div id="wrapper_Header">
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <div class="logo"></div>
+                <a href="index.php">
+                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+                </a>
+                <ul class="links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="funFact.php">Fun Fact</a></li>
+                    <li><a href="forum.php">Forum</a></li>
+                    <li><a href="quiz1.php">Quiz</a></li>
+                    <li><a href="contact_us.php">Contact Us</a></li>
+                </ul>
+            </div>
+            <?php if ($user_data['user_name'] != null) : ?>
+                <div>
+                    <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
+                    <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+                </div>
+                <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
+            <?php else : ?>
+                <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+            <?php endif; ?>
+        </nav>
+    </div>
+    <!-- ======= Header ======= -->
 
     <div class="modal-bg">
         <div class="modal-content">
@@ -106,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div id="quiz">
         <form id="form" method="post">
             <div class="wrapper1">
-                
+
                 <p class="question">1. Which relation is NOT a function?</p>
                 <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
                 <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">

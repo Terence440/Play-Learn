@@ -53,15 +53,15 @@ if (mysqli_num_rows($sql) > 0) {
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.html">Fun Fact</a></li>
+          <li><a href="funFact.php">Fun Fact</a></li>
           <li><a href="forum.php">Forum</a></li>
           <li><a href="quiz1.php">Quiz</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
+          <li><a href="contact_us.php">Contact Us</a></li>
         </ul>
       </div>
       <?php if ($user_data['user_name'] != null) : ?>
         <div>
-          <a class="cta" href="logout.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
+          <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
           <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
         </div>
         <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
@@ -71,7 +71,7 @@ if (mysqli_num_rows($sql) > 0) {
     </nav>
   </div>
   <!-- ======= Header ======= -->
-
+  
   <!-- ======= Content ======= -->
   <section id="content_Home">
     <div class="container_Home">
@@ -187,14 +187,14 @@ if (mysqli_num_rows($sql) > 0) {
             <div class="card_MeetUs">
               <div class="content_MeetUs">
                 <div class="img_MeetUs">
-                  <img src="images/img1.jpg" alt="">
+                  <img src="assets/resources/zhanyi.jpeg" alt="">
                 </div>
                 <div class="details_MeetUs">
                   <div class="name_deatilsMeetUs">Boo Zhan Yi</div>
                   <!-- <div class="job_deatilsMeetUs">Web Designer</div> -->
                 </div>
                 <div class="media-icons_MeetUs">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.facebook.com/zhanyi.boo"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
                   <a href="https://www.instagram.com/psbsosbsob/"><i class="fab fa-instagram"></i></a>
                   <a href="#"><i class="fab fa-youtube"></i></a>
@@ -205,7 +205,7 @@ if (mysqli_num_rows($sql) > 0) {
             <div class="card_MeetUs">
               <div class="content_MeetUs">
                 <div class="img_MeetUs">
-                  <img src="images/img1.jpg" alt="">
+                  <img src="assets/resources/junyi.jpg" alt="">
                 </div>
                 <div class="details_MeetUs">
                   <div class="name_deatilsMeetUs">Chong Jun Yi</div>
@@ -258,7 +258,7 @@ if (mysqli_num_rows($sql) > 0) {
             <div class="card_MeetUs">
               <div class="content_MeetUs">
                 <div class="img_MeetUs">
-                  <img src="images/img1.jpg" alt="">
+                  <img src="assets/resources/yongping.jpg" alt="">
                 </div>
                 <div class="details_MeetUs">
                   <div class="name_deatilsMeetUs">Yaap Yong Ping</div>

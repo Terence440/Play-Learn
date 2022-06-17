@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['unique_id'])) {
+    header("Location: loginPage.php");
+}
+
+include_once "assets/php/config.php";
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+if (mysqli_num_rows($sql) > 0) {
+    $user_data = mysqli_fetch_assoc($sql);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" href="assets/resources//icon.png">
-    
+
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
@@ -18,31 +33,37 @@
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <div id="wrapper_Header">
-        <nav>
-            <input type="checkbox" id="show-search">
-            <input type="checkbox" id="show-menu">
-            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-            <div class="content">
-                <div class="logo"></div>
-                <a href="index.php">
-                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-                </a>
-                <ul class="links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="funFact.html">Fun Fact</a></li>
-                    <li><a href="forum.html">Forum</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-            <a class="cta" href="logout.php"><button id="btn_SignIn">Log Out</button></a>
-            <a class="cta" href="ChatSystem/chat.php"><button id="btn_SignIn">Chat</button></a>
-        </nav>
-    </div>
-    <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
+  <div id="wrapper_Header">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+        <div class="logo"></div>
+        <a href="index.php">
+          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+        </a>
+        <ul class="links">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="funFact.php">Fun Fact</a></li>
+          <li><a href="forum.php">Forum</a></li>
+          <li><a href="quiz1.php">Quiz</a></li>
+          <li><a href="contact_us.php">Contact Us</a></li>
+        </ul>
+      </div>
+      <?php if ($user_data['user_name'] != null) : ?>
+        <div>
+          <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
+          <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+        </div>
+        <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
+      <?php else : ?>
+        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <?php endif; ?>
+    </nav>
+  </div>
+  <!-- ======= Header ======= -->
 
     <section class="contact">
         <div class="content">
@@ -152,7 +173,7 @@
 </body>
 
 <script type="text/javascript">
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function() {
         var header = document.getElementById("wrapper_Header");
         header.classList.toggle("sticky", window.scrollY > 0);
 
