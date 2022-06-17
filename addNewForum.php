@@ -115,7 +115,7 @@ if (mysqli_num_rows($sql) > 0) {
         <input type="text" class="container" name="forum_message" placeholder="Forum Message" required>
         <br>
 
-        <button type="submit" class="button_forum">Submit</button>
+        <button type="submit" class="button_forum2">Submit</button>
       </form>
 
     </div>
@@ -171,21 +171,6 @@ if (mysqli_num_rows($sql) > 0) {
   </footer>
   <!-- ======= Footer ======= -->
 
-  <script src="ckeditor.js"></script>
-
-  <script>
-    ClassicEditor
-      .create(document.querySelector('#editor'), {
-        // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
-      })
-      .then(editor => {
-        window.editor = editor;
-      })
-      .catch(err => {
-        console.error(err.stack);
-      });
-  </script>
-</body>
 
 <script type="text/javascript">
   window.addEventListener("scroll", function() {

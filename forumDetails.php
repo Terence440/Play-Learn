@@ -111,10 +111,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       <form class="inputBox" method="post">
         <h4>Comments:</h4>
         <br>
-        <input type="text" class="inputBox" name="forum_replies_message" placeholder="Comment Here" required>
+        <textarea placeholder='Add Your Comment' input type="text" class="inputBox" name="forum_replies_message" required></textarea>
+        <div class="btn">
+          <input type="submit" value='Comment'>
+          <button id='clear'>Cancel</button>
+        </div>
         <input type="hidden" name="forum_id" value="<?php echo $this_forum_data['forum_id']; ?>" />
         <input type="hidden" name="author_username" value="<?php echo $this_forum_data['author_username']; ?>" />
-        <button type="submit" class="button_forum">Submit</button>
       </form>
       <br>
       <br>
