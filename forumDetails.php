@@ -96,13 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       <a href="forum.php" class="button_forum"> Back </a>
     </div>
     <div class="box_forum">
-      <h3><?php echo $this_forum_data['forum_title']; ?></h3>
-      <p><?php echo $this_forum_data['forum_message']; ?>
-      </p>
-      <p><?php echo $this_forum_data['forum_id']; ?>
-      </p>
-      <p><?php echo $this_forum_data['author_username']; ?>
-      </p>
+      <h3><?php echo $this_forum_data['forum_title'] . " • " . $this_forum_data['author_username'] . " • " . "<i>" . $this_forum_data['forum_time'] . "</i>"; ?></h3>
+      <p><?php echo $this_forum_data['forum_message']; ?></p>
       <br>
     </div>
 
