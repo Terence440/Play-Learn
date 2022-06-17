@@ -82,20 +82,7 @@ if (mysqli_num_rows($sql) > 0) {
     </div>
 
     <!-- Forum List -->
-    <div>
-
-
-      <?php
-      // foreach ($forum_data as $data) {
-      //   echo $data['forum_title'];
-      //   echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
-      //   echo $data['forum_message'];
-      //   echo "<br>";
-      //   // echo $data['forum_replies_message'];
-      //   echo "<br>";
-      //   echo "<br>";
-      // }
-      ?>
+    <div class="content_forum">
 
       <?php
       $output = "";
@@ -111,6 +98,8 @@ if (mysqli_num_rows($sql) > 0) {
       }
 
       ?>
+
+    </div>
 
    
 

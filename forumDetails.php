@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       <form class="inputBox" method="post">
         <h4>Comments:</h4>
         <br>
-        <input type="text" class="input-field" name="forum_replies_message" placeholder="Comment Here" required>
+        <input type="text" class="inputBox" name="forum_replies_message" placeholder="Comment Here" required>
         <input type="hidden" name="forum_id" value="<?php echo $this_forum_data['forum_id']; ?>" />
         <input type="hidden" name="author_username" value="<?php echo $this_forum_data['author_username']; ?>" />
         <button type="submit" class="button_forum">Submit</button>
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if (mysqli_num_rows($resultForumReplies) > 0) {
         foreach ($forum_replies_data as $data) {
           echo "<br>";
-          echo '<h4><b>' . $data['forum_replies_username'] . '</b><i>' . " commented on ". $data['forum_replies_time'] . '</i></h4>';
+          echo '<h4><b>' . $data['forum_replies_username'] . '</b><i>' . " · ". $data['forum_replies_time'] . '</i></h4>';
           echo "<br>";
           echo "<br>";
           echo '<p>' . $data['forum_replies_message'] . '<p>';
@@ -144,11 +144,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           echo "<hr>";
         }
       } else {
-        echo "No comments yet.";
+        echo "<br>";
+        echo '<h4>' . "No comments yet." . '</h4>';
       }
 
       ?>
-      <br>
     </div>
 
   </section>
