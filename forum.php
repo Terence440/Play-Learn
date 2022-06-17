@@ -82,7 +82,7 @@ if (mysqli_num_rows($sql) > 0) {
     </div>
 
     <!-- Forum List -->
-    <div class="box_forum">
+    <div>
 
 
       <?php
@@ -104,71 +104,15 @@ if (mysqli_num_rows($sql) > 0) {
       // $forum_data = array();
       if (mysqli_num_rows($resultForum) > 0) {
         while ($row = mysqli_fetch_assoc($resultForum)) {
-          $output = ' <h3><a href="forumDetails.php?forum_id=' . $row['forum_id'] .' ">' . $row['forum_title'] . '</a></h3>
-            <p>' . $row['forum_message'] . '</p>';
+          $output = ' <div class="box_forum"><h3><a href="forumDetails.php?forum_id=' . $row['forum_id'] .' ">' . $row['forum_title'] . '</a></h3>
+            <p>' . $row['forum_message'] . '</p></div><br>';
           echo $output;
         }
       }
 
       ?>
 
-    </div>
-
-    <div class="box_forum">
-
-      <h3><a href="forumDetails.php"><?php echo $forum_data[1]['forum_title']; ?></a></h3>
-      <p>
-        <?php echo $forum_data[1]['forum_message']; ?>
-      </p>
-      <br>
-      <form action="forumDetails.php" method="post">
-        <input type="hidden" name="forum_id" value="<?php echo $forum_data[1]['forum_id']; ?>" />
-        <button type="submit" class="submit-btn">Read More</button>
-      </form>
-
-    </div>
-
-    <div class="box_forum">
-
-      <h3><a href="forumDetails.php"><?php echo $forum_data[2]['forum_title']; ?></a></h3>
-      <p>
-        <?php echo $forum_data[2]['forum_message']; ?>
-      </p>
-      <br>
-      <form action="forumDetails.php" method="post">
-        <input type="hidden" name="forum_id" value="<?php echo $forum_data[2]['forum_id']; ?>" />
-        <button type="submit" class="submit-btn">Read More</button>
-      </form>
-
-    </div>
-
-    <div class="box_forum">
-
-      <h3><a href="forumDetails.php"><?php echo $forum_data[3]['forum_title']; ?></a></h3>
-      <p>
-        <?php echo $forum_data[3]['forum_message']; ?>
-      </p>
-      <br>
-      <form action="forumDetails.php" method="post">
-        <input type="hidden" name="forum_id" value="<?php echo $forum_data[3]['forum_id']; ?>" />
-        <button type="submit" class="submit-btn">Read More</button>
-      </form>
-
-    </div>
-
-    <div class="box_forum">
-
-      <h3><a href="forumDetails.php"><?php echo $forum_data[4]['forum_title']; ?></a></h3>
-      <p>
-        <?php echo $forum_data[4]['forum_message']; ?>
-      </p>
-      <br>
-      <form action="forumDetails.php" method="post">
-        <input type="hidden" name="forum_id" value="<?php echo $forum_data[4]['forum_id']; ?>" />
-        <button type="submit" class="submit-btn">Read More</button>
-      </form>
-
-    </div>
+   
 
   </section>
 

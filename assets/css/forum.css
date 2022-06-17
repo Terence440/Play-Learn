@@ -45,12 +45,18 @@
 	font-size: 20px;
 }
 
+.box_forum p1{
+	color: #e91e63;
+	font-size: 14px;
+}
+
 
 .box_forum p{
 	color: #777;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 1.6;
 }
+
 
 hr {
     border: none;
