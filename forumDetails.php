@@ -11,6 +11,20 @@ $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['un
 if (mysqli_num_rows($sql) > 0) {
   $user_data = mysqli_fetch_assoc($sql);
 }
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+  $forum_replies_message = $_POST['forum_replies_message'];
+  $forum_id =  $_POST['forum_id'];
+  $author_username =  $_POST['author_username'];
+  // save to database;
+  $query = "INSERT INTO forum_replies(forum_id, forum_replies_username, forum_replies_message) VALUES ('$forum_id', '$user_data[user_name]', '$forum_replies_message')";
+
+  mysqli_query($conn, $query);
+} else {
+  echo "Please enter some valid information.";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +78,8 @@ if (mysqli_num_rows($sql) > 0) {
 
   <!-- ======content section/body=====-->
   <?php
-  $forum_id =  $_POST['forum_id'];
+  // $forum_id =  $_POST['forum_id'];
+  $forum_id =  $_GET['forum_id'];
 
   $query = "SELECT * FROM forum WHERE forum_id = '$forum_id' LIMIT 1";
   $resultForum = mysqli_query($conn, $query);
@@ -93,7 +108,7 @@ if (mysqli_num_rows($sql) > 0) {
 
     <div class="NewForumForm">
 
-      <form class="inputBox" action="addForumComment.php" method="post">
+      <form class="inputBox" method="post">
         <h2>Add Comments:</h2>
         <br>
         <input type="text" class="input-field" name="forum_replies_message" placeholder="Comment Here" required>
@@ -120,25 +135,21 @@ if (mysqli_num_rows($sql) > 0) {
       <h4>Comments: </h4>
       <br>
       <?php
-      //if(mysqli_num_rows($resultForumReplies) > 0){
-      //while($row = mysqli_fetch_assoc($resultForumReplies)){
-      //          echo $forum_replies_data['forum_replies_username'];
-      //        echo $forum_replies_data['forum_replies_time'];
-      //          echo $forum_replies_data['forum_replies_message'];
-      //     }
-      //}
-      // else{
-      // echo "No comments yet.";
-      //}
-      foreach ($forum_replies_data as $data) {
-        echo $data['forum_replies_username'];
-        echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
-        echo $data['forum_replies_time'];
-        echo "<br>";
-        echo $data['forum_replies_message'];
-        echo "<br>";
-        echo "<br>";
+
+      if (mysqli_num_rows($resultForumReplies) > 0) {
+        foreach ($forum_replies_data as $data) {
+          echo $data['forum_replies_username'];
+          echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
+          echo $data['forum_replies_time'];
+          echo "<br>";
+          echo $data['forum_replies_message'];
+          echo "<br>";
+          echo "<br>";
+        }
+      } else {
+        echo "No comments yet.";
       }
+
       ?>
       <br>
     </div>

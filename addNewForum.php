@@ -45,9 +45,6 @@ if (mysqli_num_rows($sql) > 0) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" href="assets/resources//icon.png">
-
   <title>Forum</title>
 
   <link rel="stylesheet" type="text/css" href="assets/css/header.css">
@@ -59,7 +56,6 @@ if (mysqli_num_rows($sql) > 0) {
 
 <body>
 
-  <!-- ======= Header ======= -->
   <div id="wrapper_Header">
     <nav>
       <input type="checkbox" id="show-search">
@@ -67,29 +63,49 @@ if (mysqli_num_rows($sql) > 0) {
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
         <div class="logo"></div>
-        <a href="index.php">
+        <a href="index.html">
           <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
         </a>
         <ul class="links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.php">Fun Fact</a></li>
-          <li><a href="forum.php">Forum</a></li>
-          <li><a href="quiz1.php">Quiz</a></li>
-          <li><a href="contact_us.php">Contact Us</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li>
+            <a href="#" class="desktop-link">Features</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a href="#">Drop Menu 1</a></li>
+              <li><a href="#">Drop Menu 2</a></li>
+              <li><a href="#">Drop Menu 3</a></li>
+              <li><a href="#">Drop Menu 4</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-link">Services</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">Services</label>
+            <ul>
+              <li><a href="#">Drop Menu 1</a></li>
+              <li><a href="#">Drop Menu 2</a></li>
+              <li><a href="#">Drop Menu 3</a></li>
+              <li>
+                <a href="#" class="desktop-link">More Items</a>
+                <input type="checkbox" id="show-items">
+                <label for="show-items">More Items</label>
+                <ul>
+                  <li><a href="#">Sub Menu 1</a></li>
+                  <li><a href="#">Sub Menu 2</a></li>
+                  <li><a href="#">Sub Menu 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Feedback</a></li>
         </ul>
       </div>
-      <?php if ($user_data['user_name'] != null) : ?>
-        <div>
-          <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
-          <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
-        </div>
-        <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
-      <?php else : ?>
-        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <?php endif; ?>
+      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
     </nav>
   </div>
-  <!-- ======= Header ======= -->
 
   <!-- ======content section/body=====-->
   <section class="forum">
@@ -98,40 +114,26 @@ if (mysqli_num_rows($sql) > 0) {
       <a href="forum.php" class="button_forum"> Back </a>
       <br>
     </div>
+
     <div class="NewForumForm">
-      <form>
+
+      <form class="inputBox" method="post">
         <h2>New Forum</h2>
         <br>
-        <div class="inputBox">
-          <input type="text" name="" required="required">
-          <span>Full Name</span>
-        </div>
+        <input type="text" class="input-field" name="author_name" placeholder="Name" required>
         <br>
-        <div class="inputBox">
-          <input type="text" name="" required="required">
-          <span>Email</span>
-        </div>
         <br>
-        <div class="inputBox">
-          <input type="text" name="" required="required">
-          <span>Forum Title</span>
-        </div>
+        <input type="text" class="input-field" name="forum_title" placeholder="Forum Title" required>
         <br>
-        <div class="button-group-addfile3239">
-          <span class="form-description23993">Attactment*</span><input type="file" name="ffile" class="question-ttile3226">
-          <br>
-          <br>
-          <div class="container">
-            <div id="editor">
-              <textarea name="txtEditor" rows="4" cols="50"></textarea>
-            </div>
-          </div>
-          <br>
-          <div class="inputBox">
-            <input type="submit" name="" value="Submit">
-          </div>
+        <br>
+        <input type="text" class="container" name="forum_message" placeholder="Forum Message" required>
+        <br>
+
+        <button type="submit" class="button_forum">Submit</button>
       </form>
+
     </div>
+
   </section>
 
   <!-- ======= Footer ======= -->
@@ -179,7 +181,7 @@ if (mysqli_num_rows($sql) > 0) {
       </div>
 
     </div>
-    <p class="copyright">Copyright © 2021. All Right Reserved</p>
+    <p class="copyright">Copyright Â© 2021. All Right Reserved</p>
   </footer>
   <!-- ======= Footer ======= -->
 

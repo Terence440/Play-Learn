@@ -1,20 +1,31 @@
 <?php
 
 session_start();
-include("connection.php");
+include_once "assets/php/config.php";
 include("function.php");
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if (!isset($_SESSION['unique_id'])) {
+  header("Location: loginPage.php");
+}
 
-  $forum_replies_message = $_POST['forum_replies_message'];
-  $forum_id =  $_POST['forum_id'];
-  $author_username =  $_POST['author_username'];
+include_once "assets/php/config.php";
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+if (mysqli_num_rows($sql) > 0) {
+  $user_data = mysqli_fetch_assoc($sql);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+
+  $forum_replies_message = $_GET['forum_replies_message'];
+  $forum_id =  $_GET['forum_id'];
+  echo $forum_id;
+  $author_username =  $_GET['author_username'];
   // save to database;
-  $query = "INSERT INTO forum_replies(forum_id, forum_replies_username, forum_replies_message) VALUES ('$forum_id', '$author_username', '$forum_replies_message')";
+  $query = "INSERT INTO forum_replies(forum_id, forum_replies_username, forum_replies_message) VALUES ('$forum_id', '$user_data[user_name]', '$forum_replies_message')";
 
-  mysqli_query($con, $query);
+  mysqli_query($conn, $query);
 
-  header("Location: forumDetails.php");
+  header("Location: addForumComment.php");
 } else {
   echo "Please enter some valid information.";
 }

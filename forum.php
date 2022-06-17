@@ -75,22 +75,42 @@ if (mysqli_num_rows($sql) > 0) {
   ?>
 
   <section class="forum">
+    <!-- Forum Title -->
     <div class="content_forum">
       <h2>Forum</h2>
       <a href="addNewForum.php" class="button_forum"> Add New Forum </a>
     </div>
 
+    <!-- Forum List -->
     <div class="box_forum">
 
-      <h3><a href="forumDetails.php"><?php echo $forum_data[0]['forum_title']; ?></a></h3>
-      <p>
-        <?php echo $forum_data[0]['forum_message']; ?>
-      </p>
-      <br>
-      <form action="forumDetails.php" method="post">
-        <input type="hidden" name="forum_id" value="<?php echo $forum_data[0]['forum_id']; ?>" />
-        <button type="submit" class="submit-btn">Read More</button>
-      </form>
+
+      <?php
+      // foreach ($forum_data as $data) {
+      //   echo $data['forum_title'];
+      //   echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
+      //   echo $data['forum_message'];
+      //   echo "<br>";
+      //   // echo $data['forum_replies_message'];
+      //   echo "<br>";
+      //   echo "<br>";
+      // }
+      ?>
+
+      <?php
+      $output = "";
+      $query = "SELECT * FROM forum ORDER BY forum_id DESC";
+      $resultForum = mysqli_query($conn, $query);
+      // $forum_data = array();
+      if (mysqli_num_rows($resultForum) > 0) {
+        while ($row = mysqli_fetch_assoc($resultForum)) {
+          $output = ' <h3><a href="forumDetails.php?forum_id=' . $row['forum_id'] .' ">' . $row['forum_title'] . '</a></h3>
+            <p>' . $row['forum_message'] . '</p>';
+          echo $output;
+        }
+      }
+
+      ?>
 
     </div>
 
