@@ -6,7 +6,7 @@
 .slideshow {
   width: 100%;
   height: 600px;
-  background: #ffffff;
+  background: #000000;
 }
 
 .slideshow .mySlides {
@@ -15,19 +15,20 @@
 }
 
 .slideshow .mySlides h1 {
-  margin: 50px 0 0 200px;
+  margin: 50px 0 0 150px;
   font-size: 40px;
   font-weight: 700;
   line-height: 56px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
 .slideshow .mySlides h2 {
-  color: rgba(43, 31, 31, 0.6);
+  color: rgba(247, 247, 247, 0.6);
   margin-bottom: 50px;
   margin-top: 20px;
   font-size: 20px;
+  text-align: justify;
 }
 
 .slideshow .btn-get-started {
@@ -185,24 +186,22 @@ img {
 # Quiz
 --------------------------------------------------------------*/
 #quiz {
-  background: #beb7b7;
-  justify-content: center;
-  align-items: center;
+  background: #eaeaea;
   display: flex;
 }
 
 #quiz .content{
-  background: #beb7b7;
-  width: 50%;
+  background: #eaeaea;
+  width: 100%;
 }
 
 #quiz .image {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 20px;
-  border-radius: 80px;
-  width: 250px;
-  height: 250px;
+  width: 340px;
+  height: 340px;
   cursor: pointer;
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
@@ -215,7 +214,7 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
-  top: 0%;
+  top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,17 +222,16 @@ img {
 }
 
 .modal-content {
-  width: 1700px;
+  width: 1000px;
   height: 300px;
-  background-color: white;
+  background-color: #eaeaea;
   border-radius: 10px;
 }
 
 .modal-content h1 {
-  font-family: Garamond;
-  padding-top: 20px;
-  font-size: 40px;
-  color: #0088a9;
+  padding-top: 45px;
+  font-size: 35px;
+  color: #3e3e3e;
   text-align: center;
 }
 
@@ -247,8 +245,8 @@ img {
 }
 
 .modal-content .image {
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 52px;
+  margin-top: 52px;
   border-radius: 30px;
   width: 180px;
   height: 180px;

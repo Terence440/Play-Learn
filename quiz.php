@@ -95,10 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <div class="modal-bg">
         <div class="modal-content">
-            <p>1. The quiz contain olny 2 question</p>
-            <p>2. You have 1 minute to answer all the question</p>
-            <p>3. 1 questain cointain 1 mark</p>
-            <p>4. No mark given if you did not click submit</p>
+            <h1 style="margin-top: 35px; margin-bottom: 40px; font-size: 40px;">Instruction</h1>
+            <p>1. The quiz contains only two questions.<br>2. You have one minute to answer all the questions.<br>3. One question cointains one mark.<br>4. No mark given if you did not click submit.</p>
             <a href="#" id="start_btn" class="btn_start" onclick="startQuiz()">Start</a>
         </div>
     </div>

@@ -67,32 +67,28 @@ if (mysqli_num_rows($sql) > 0) {
     <!-- ======= Slideshow ======= -->
     <div class="slideshow" style="margin-top: 50px;">
         <div class="mySlides fade">
-            <p><img src="assets/resources/quiz.jpg" class="img-fluid image" alt=""></p>
-            <h1>Are you ready for the Quiz</h1>
-            <h2>“By the time the average person finishes college, he or she will have taken over 2,600 tests,
-                quizzes, and exams. The right answer approach becomes deeply ingrained in our thinking.
-                This may be fine for some mathematical problems where there is in fact only one right answer.
-                The difficulty is that most of life isn’t this way. Life is ambiguous; there are many right answers-
+            <p><img src="assets/resources/quiz.png" class="img-fluid image" alt=""></p>
+            <h1>Are you ready for the Quiz?</h1>
+            <h2>Life is ambiguous; there are many right answers-
                 all depending on what you’re looking for. But if you think there is only one right answer, then you’ll
-                stop
-                looking as soon as you find one.” ~ Roger von Oech</h2>
+                stop looking as soon as you find one.”<br><br>~ Roger von Oech</h2>
             <p><a href="#quiz" class="btn-get-started">Lets Started</a></p>
         </div>
 
         <div class="mySlides fade">
-            <p><img src="assets/resources/quiz2.jpg" class="img-fluid image" alt=""></p>
-            <h1>Are you ready for the Quiz</h1>
+            <p><img src="assets/resources/quiz.png" class="img-fluid image" alt=""></p>
+            <h1>Are you ready for the Quiz?</h1>
             <h2>“My friend said to me, You know what I like? Mashed potatoes. I was like, Dude, you
-                have to give me time to guess. If you’re going to quiz me you have to insert a pause.” ~
+                have to give me time to guess. If you’re going to quiz me you have to insert a pause.”<br><br>~
                 Mitch Hedberg</h2>
             <p><a href="#quiz" class="btn-get-started">Lets Started</a></p>
         </div>
 
         <div class="mySlides fade">
-            <p><img src="assets/resources/quiz3.jpg" class="img-fluid image" alt=""></p>
-            <h1>Are you ready for the Quiz</h1>
+            <p><img src="assets/resources/quiz.png" class="img-fluid image" alt=""></p>
+            <h1>Are you ready for the Quiz?</h1>
             <h2>“Thou shalt not answer questionnaires Or quizzes upon world affairs, Nor with compliance
-                Take any test. Thou shalt not sit with statisticians nor commit A social science.” ~
+                Take any test. Thou shalt not sit with statisticians nor commit A social science.”<br><br>~
                 W. H. Auden</h2>
             <p><a href="#quiz" class="btn-get-started">Lets Started</a></p>
         </div>
