@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['unique_id'])) {
-  header("Location: loginPage.php");
+  header("Location: Log_In/loginPage.php");
 }
 
 include_once "assets/php/config.php";
@@ -53,15 +53,15 @@ if (mysqli_num_rows($sql) > 0) {
         </a>
         <ul class="links">
           <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.php">Fun Fact</a></li>
-          <li><a href="forum.php">Forum</a></li>
-          <li><a href="quiz1.php">Quiz</a></li>
-          <li><a href="contact_us.php">Contact Us</a></li>
+          <li><a href="Fun_Fact/funFact.php">Fun Fact</a></li>
+          <li><a href="Forum/forum.php">Forum</a></li>
+          <li><a href="Quiz/quiz1.php">Quiz</a></li>
+          <li><a href="Contact_Us/contact_us.php">Contact Us</a></li>
         </ul>
       </div>
       <?php if ($user_data['user_name'] != null) : ?>
         <div class="dropdown_btnUser">
-          <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
+          <a href="ChatSystem/chat.php"><i class='fas fa-comment'></i></a>
           <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
           <button class="dropbtn_UserArrow" onclick="myFunction()">
             <i class="fa fa-caret-down"></i>
@@ -72,7 +72,7 @@ if (mysqli_num_rows($sql) > 0) {
           </div>
         </div>
       <?php else : ?>
-        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+        <a class="cta" href="Log_In/loginPage.php"><button id="btn_SignIn">Sign In</button></a>
       <?php endif; ?>
     </nav>
   </div>
@@ -106,7 +106,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <h2 class="name">Forum</h2>
                 <p class="description">This is a student space for the students to have discussion among each other.</p>
 
-                <a href="forum.php">
+                <a href="Forum/forum.php">
                   <button class="button">View More</button>
                 </a>
 
@@ -126,7 +126,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <p class="description">Stop right there! You're about to learn some seriously interesting facts about science,
                   history, and pop culture that will blow your mind.</p>
 
-                <a href="funFact.php">
+                <a href="Fun_Fact/funFact.php">
                   <button class="button">View More</button>
                 </a>
 
@@ -145,7 +145,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <h2 class="name">Quiz</h2>
                 <p class="description">Use this funciton to learn anything, anywhere. You can study on your own or engage in group quizzes remotely.</p>
 
-                <a href="quiz1.php">
+                <a href="Quiz/quiz1.php">
                   <button class="button">View More</button>
                 </a>
 
@@ -164,7 +164,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <h2 class="name">Chat</h2>
                 <p class="description">Having a problem? Come and connect with you friends now and have a discuss with them!</p>
 
-                <a href="ChatSystem\chat.php">
+                <a href="ChatSystem/chat.php">
                   <button class="button">View More</button>
                 </a>
 

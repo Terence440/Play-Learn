@@ -3,10 +3,10 @@
 session_start();
 
 if (!isset($_SESSION['unique_id'])) {
-    header("Location: loginPage.php");
+    header("Location: ../loginPage.php");
 }
 
-include_once "assets/php/config.php";
+include_once "../assets/php/config.php";
 $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
 if (mysqli_num_rows($sql) > 0) {
     $user_data = mysqli_fetch_assoc($sql);
@@ -21,58 +21,59 @@ if (mysqli_num_rows($sql) > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="assets/resources//icon.png">
+    <link rel="icon" href="../assets/resources//icon.png">
 
-    <title>Play & Learn</title>
-    <link rel="stylesheet" href="assets/css/quiz.css">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../assets/css/quiz.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- ======= Header ======= -->
-    <div id="wrapper_Header">
-        <nav>
-            <input type="checkbox" id="show-search">
-            <input type="checkbox" id="show-menu">
-            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-            <div class="content">
-                <div class="logo"></div>
-                <a href="index.php">
-                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
-                </a>
-                <ul class="links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="funFact.php">Fun Fact</a></li>
-                    <li><a href="forum.php">Forum</a></li>
-                    <li><a href="quiz1.php">Quiz</a></li>
-                    <li><a href="contact_us.php">Contact Us</a></li>
-                </ul>
-            </div>
-            <?php if ($user_data['user_name'] != null) : ?>
-                <div class="dropdown_btnUser">
-                    <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
-                    <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
-                    <button class="dropbtn_UserArrow" onclick="myFunction()">
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
-                        <a href="assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
-                    </div>
-                </div>
-            <?php else : ?>
-                <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-            <?php endif; ?>
-        </nav>
-    </div>
-    <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
+  <div id="wrapper_Header">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+        <div class="logo"></div>
+        <a href="../index.php">
+          <img id="logo" src="../assets/resources/logo_white.png" alt="logo">
+        </a>
+        <ul class="links">
+          <li><a href="../index.php">Home</a></li>
+          <li><a href="../Fun_Fact/funFact.php">Fun Fact</a></li>
+          <li><a href="../Forum/forum.php">Forum</a></li>
+          <li><a href="../Quiz/quiz1.php">Quiz</a></li>
+          <li><a href="../Contact_Us/contact_us.php">Contact Us</a></li>
+        </ul>
+      </div>
+      <?php if ($user_data['user_name'] != null) : ?>
+        <div class="dropdown_btnUser">
+          <a href="../ChatSystem/chat.php"><i class='fas fa-comment'></i></a>
+          <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
+          <button class="dropbtn_UserArrow" onclick="myFunction()">
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
+            <a href="../assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+            <!-- Log out not functioning -->
+          </div>
+        </div>
+      <?php else : ?>
+        <a class="cta" href="../Log_In/loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <?php endif; ?>
+    </nav>
+  </div>
+  <!-- ======= Header ======= -->
 
     <!-- ======= Slideshow ======= -->
     <div class="slideshow" style="margin-top: 50px;">
         <div class="mySlides fade">
-            <p><img src="assets/resources/quiz.png" class="img-fluid image" alt=""></p>
+            <p><img src="../assets/resources/quiz.png" class="img-fluid image" alt=""></p>
             <h1>Are you ready for the Quiz?</h1>
             <h2>Life is ambiguous; there are many right answers-
                 all depending on what you’re looking for. But if you think there is only one right answer, then you’ll
@@ -81,7 +82,7 @@ if (mysqli_num_rows($sql) > 0) {
         </div>
 
         <div class="mySlides fade">
-            <p><img src="assets/resources/quiz.png" class="img-fluid image" alt=""></p>
+            <p><img src="../assets/resources/quiz.png" class="img-fluid image" alt=""></p>
             <h1>Are you ready for the Quiz?</h1>
             <h2>“My friend said to me, You know what I like? Mashed potatoes. I was like, Dude, you
                 have to give me time to guess. If you’re going to quiz me you have to insert a pause.”<br><br>~
@@ -90,7 +91,7 @@ if (mysqli_num_rows($sql) > 0) {
         </div>
 
         <div class="mySlides fade">
-            <p><img src="assets/resources/quiz.png" class="img-fluid image" alt=""></p>
+            <p><img src="../assets/resources/quiz.png" class="img-fluid image" alt=""></p>
             <h1>Are you ready for the Quiz?</h1>
             <h2>“Thou shalt not answer questionnaires Or quizzes upon world affairs, Nor with compliance
                 Take any test. Thou shalt not sit with statisticians nor commit A social science.”<br><br>~
@@ -108,14 +109,14 @@ if (mysqli_num_rows($sql) > 0) {
 
     <div id="quiz">
         <div class="content" data-aos="fade-up" data-aos-delay="300" style="padding-top: 80px;">
-            <a href="#" class="button"><img src="assets/resources/subject1.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject2.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject3.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject4.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject5.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject6.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject7.png" class="image" alt=""></a>
-            <a href="#" class="button"><img src="assets/resources/subject8.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject1.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject2.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject3.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject4.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject5.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject6.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject7.png" class="image" alt=""></a>
+            <a href="#" class="button"><img src="../assets/resources/subject8.png" class="image" alt=""></a>
         </div>
     </div>
 
@@ -123,14 +124,14 @@ if (mysqli_num_rows($sql) > 0) {
         <div class="modal-content">
             <div class="close">+</div>
             <h1>Select a Chapter to Start</h1>
-            <a href="quiz.php"><img src="assets/resources/chapter1.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter2.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter3.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter4.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter5.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter6.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter7.png" class="image" alt=""></a>
-            <a href="quiz.php"><img src="assets/resources/chapter8.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter1.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter2.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter3.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter4.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter5.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter6.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter7.png" class="image" alt=""></a>
+            <a href="quiz.php"><img src="../assets/resources/chapter8.png" class="image" alt=""></a>
         </div>
     </div>
 
@@ -189,7 +190,7 @@ if (mysqli_num_rows($sql) > 0) {
     AOS.init();
 </script>
 
-<script src="assets/javascript/quiz.js"></script>
+<script src="../assets/javascript/quiz.js"></script>
 
 <script type="text/javascript">
     window.addEventListener("scroll", function() {
@@ -197,9 +198,9 @@ if (mysqli_num_rows($sql) > 0) {
         header.classList.toggle("sticky", window.scrollY > 0);
 
         if (window.scrollY == 0) {
-            document.getElementById("logo").src = "assets\\resources\\logo_white.png";
+            document.getElementById("logo").src = "..\\assets\\resources\\logo_white.png";
         } else {
-            document.getElementById("logo").src = "assets\\resources\\logo_black.png";
+            document.getElementById("logo").src = "..\\assets\\resources\\logo_black.png";
         }
     })
 </script>

@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-include("assets/php/config.php");
-include("assets/php/function.php");
+include("../assets/php/config.php");
+include("../assets/php/function.php");
 
 $user_data = check_login($conn);
 $username = $user_data['user_name'];
@@ -27,12 +27,12 @@ if (mysqli_num_rows($sql) > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play & Learn</title>
-    <link rel="stylesheet" href="assets/css/score.css">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../assets/css/score.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
-    <script type="text/javascript" src="assets/javascript/quiz.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/header.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
+    <script type="text/javascript" src="../assets/javascript/quiz.js"></script>
     <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
 
@@ -45,30 +45,31 @@ if (mysqli_num_rows($sql) > 0) {
             <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
             <div class="content">
                 <div class="logo"></div>
-                <a href="index.php">
-                    <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+                <a href="../index.php">
+                    <img id="logo" src="../assets/resources/logo_white.png" alt="logo">
                 </a>
                 <ul class="links">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="funFact.php">Fun Fact</a></li>
-                    <li><a href="forum.php">Forum</a></li>
-                    <li><a href="quiz1.php">Quiz</a></li>
-                    <li><a href="contact_us.php">Contact Us</a></li>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../Fun_Fact/funFact.php">Fun Fact</a></li>
+                    <li><a href="../Forum/forum.php">Forum</a></li>
+                    <li><a href="../Quiz/quiz1.php">Quiz</a></li>
+                    <li><a href="../Contact_Us/contact_us.php">Contact Us</a></li>
                 </ul>
             </div>
             <?php if ($user_data['user_name'] != null) : ?>
                 <div class="dropdown_btnUser">
-                    <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
+                    <a href="../ChatSystem/chat.php"><i class='fas fa-comment'></i></a>
                     <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
                     <button class="dropbtn_UserArrow" onclick="myFunction()">
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
-                        <a href="assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+                        <a href="../assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+                        <!-- Log out not functioning -->
                     </div>
                 </div>
             <?php else : ?>
-                <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+                <a class="cta" href="../Log_In/loginPage.php"><button id="btn_SignIn">Sign In</button></a>
             <?php endif; ?>
         </nav>
     </div>
@@ -197,7 +198,7 @@ if (mysqli_num_rows($sql) > 0) {
     AOS.init();
 </script>
 
-<script src="assets/javascript/quiz.js"></script>
+<script src="../assets/javascript/quiz.js"></script>
 
 <script type="text/javascript">
     window.addEventListener("scroll", function() {
@@ -205,9 +206,9 @@ if (mysqli_num_rows($sql) > 0) {
         header.classList.toggle("sticky", window.scrollY > 0);
 
         if (window.scrollY == 0) {
-            document.getElementById("logo").src = "assets\\resources\\logo_white.png";
+            document.getElementById("logo").src = "..\\assets\\resources\\logo_white.png";
         } else {
-            document.getElementById("logo").src = "assets\\resources\\logo_black.png";
+            document.getElementById("logo").src = "..\\assets\\resources\\logo_black.png";
         }
     })
 </script>

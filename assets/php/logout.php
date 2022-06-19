@@ -11,12 +11,12 @@
             if($sql){
                 session_unset();
                 session_destroy();
-                header("location: ../../loginPage.php");
+                header("location: ../../Log_In/loginPage.php");
             }
         }else{
             header("location: ../ChatSystem/chat.php");
         }
     }else{  
-        header("location: ../../loginPage.php");
+        header("location: ../../Log_In/loginPage.php");
     }
 ?>

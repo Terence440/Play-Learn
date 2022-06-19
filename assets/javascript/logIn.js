@@ -9,7 +9,7 @@ form_LogIn.onsubmit = (e) => {
 continueBtn_LogIn.onclick = () => {
     // Start AJAX
     let xhr = new XMLHttpRequest(); // creating XML Object
-    xhr.open("POST", "assets/php/logIn.php", true);
+    xhr.open("POST", "../assets/php/logIn.php", true);
     xhr.onload = () => {
         console.log("run");
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -17,7 +17,7 @@ continueBtn_LogIn.onclick = () => {
                 let data = xhr.response;
                 if (data === "success") {
                     console.log(data);
-                    location.href = "index.php";
+                    location.href = "../index.php";
                 } else {
                     console.log("Something went wrong");
                     errorText_LogIn.style.display = "block";

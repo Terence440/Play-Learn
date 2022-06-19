@@ -3,10 +3,10 @@
 session_start();
 
 if (!isset($_SESSION['unique_id'])) {
-  header("Location: loginPage.php");
+  header("Location: ../Log_In/loginPage.php");
 }
 
-include_once "assets/php/config.php";
+include_once "../assets/php/config.php";
 $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
 if (mysqli_num_rows($sql) > 0) {
   $user_data = mysqli_fetch_assoc($sql);
@@ -21,12 +21,12 @@ if (mysqli_num_rows($sql) > 0) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="assets/resources//icon.png">
+  <link rel="icon" href="../assets/resources//icon.png">
 
-  <title>Play & Learn</title>
-  <link rel="stylesheet" href="assets/css/header.css" />
-  <link rel="stylesheet" href="assets/css/footer.css" />
-  <link rel="stylesheet" href="assets/css/funfact.css" />
+  <title>Fun Fact</title>
+  <link rel="stylesheet" href="../assets/css/header.css" />
+  <link rel="stylesheet" href="../assets/css/footer.css" />
+  <link rel="stylesheet" href="../assets/css/funfact.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
   <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
 </head>
@@ -41,30 +41,31 @@ if (mysqli_num_rows($sql) > 0) {
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
         <div class="logo"></div>
-        <a href="index.php">
-          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+        <a href="../index.php">
+          <img id="logo" src="../assets/resources/logo_white.png" alt="logo">
         </a>
         <ul class="links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.php">Fun Fact</a></li>
-          <li><a href="forum.php">Forum</a></li>
-          <li><a href="quiz1.php">Quiz</a></li>
-          <li><a href="contact_us.php">Contact Us</a></li>
+          <li><a href="../index.php">Home</a></li>
+          <li><a href="../Fun_Fact/funFact.php">Fun Fact</a></li>
+          <li><a href="../Forum/forum.php">Forum</a></li>
+          <li><a href="../Quiz/quiz1.php">Quiz</a></li>
+          <li><a href="../Contact_Us/contact_us.php">Contact Us</a></li>
         </ul>
       </div>
       <?php if ($user_data['user_name'] != null) : ?>
         <div class="dropdown_btnUser">
-          <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
+          <a href="../ChatSystem/chat.php"><i class='fas fa-comment'></i></a>
           <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
           <button class="dropbtn_UserArrow" onclick="myFunction()">
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
-            <a href="assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+            <a href="../assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+            <!-- Log out not functioning -->
           </div>
         </div>
       <?php else : ?>
-        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+        <a class="cta" href="../Log_In/loginPage.php"><button id="btn_SignIn">Sign In</button></a>
       <?php endif; ?>
     </nav>
   </div>
@@ -74,22 +75,22 @@ if (mysqli_num_rows($sql) > 0) {
   <section style="background: rgb(6, 6, 18)">
     <!-- ======= Image ======= -->
     <div class="fun_fact_class">
-      <img class="fun_fact_img" src="assets/resources/fun_fact.jpg" />
+      <img class="fun_fact_img" src="../assets/resources/fun_fact.jpg" />
     </div>
     <!-- ======= Image ======= -->
 
     <!-- ======= Slideshow ======= -->
     <div class="slideshow-container">
       <div class="mySlides fade">
-        <img src="assets/resources/ff1.png" style="width: 100%" />
+        <img src="../assets/resources/ff1.png" style="width: 100%" />
       </div>
 
       <div class="mySlides fade">
-        <img src="assets/resources/ff2.png" style="width: 100%" />
+        <img src="../assets/resources/ff2.png" style="width: 100%" />
       </div>
 
       <div class="mySlides fade">
-        <img src="assets/resources/ff3.png" style="width: 100%" />
+        <img src="../assets/resources/ff3.png" style="width: 100%" />
       </div>
     </div>
     <br />
@@ -276,9 +277,9 @@ if (mysqli_num_rows($sql) > 0) {
     header.classList.toggle("sticky", window.scrollY > 0);
 
     if (window.scrollY == 0) {
-      document.getElementById("logo").src = "assets\\resources\\logo_white.png";
+      document.getElementById("logo").src = "../assets/resources/logo_white.png";
     } else {
-      document.getElementById("logo").src = "assets\\resources\\logo_black.png";
+      document.getElementById("logo").src = "../assets/resources/logo_black.png";
     }
   })
 </script>

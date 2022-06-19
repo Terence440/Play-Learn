@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="assets/resources//icon.png">
+  <link rel="icon" href="../assets/resources/icon.png">
 
-  <title>Play & Learn</title>
+  <title>Log In</title>
 
-  <link rel="stylesheet" href="assets/css/loginPage.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/header.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/loginPage.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/header.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/footer.css">
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <script src="https://kit.fontawesome.com/47b68a28dc.js" crossorigin="anonymous"></script>
@@ -27,15 +27,15 @@
       <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
       <div class="content">
         <div class="logo"></div>
-        <a href="index.php">
-          <img id="logo" src="assets\\resources\\logo_white.png" alt="logo">
+        <a href="../index.php">
+          <img id="logo" src="..\\assets\\resources\\logo_white.png" alt="logo">
         </a>
         <ul class="links">
-          <li><a href="index.php">Home</a></li>
-          <li><a href="funFact.php">Fun Fact</a></li>
-          <li><a href="forum.php">Forum</a></li>
-          <li><a href="quiz.php">Quiz</a></li>
-          <li><a href="contact_us.php">Contact Us</a></li>
+          <li><a href="../index.php">Home</a></li>
+          <li><a href="../Fun Fact/funFact.php">Fun Fact</a></li>
+          <li><a href="../Forum/forum.php">Forum</a></li>
+          <li><a href="../Quiz/quiz1.php">Quiz</a></li>
+          <li><a href="../Contact_Us/contact_us.php">Contact Us</a></li>
         </ul>
       </div>
       <!-- <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a> -->
@@ -52,7 +52,7 @@
       </div>
 
       <!-- Log In -->
-      <div class="form login_Form">
+      <div class="form_L login_Form">
         <form id="login" class="input-group" enctype="multipart/form-data" method="post" autocomplete="off">
           <div class="error-text"></div>
           <div class="field input">
@@ -71,7 +71,7 @@
       </div>
 
       <!-- Sign Up  -->
-      <div class="form signup">
+      <div class="form_S signup">
         <form id="register" class="input-group" method="post" autocomplete="off">
           <div class="error-text"></div>
           <div class="field input">
@@ -97,9 +97,9 @@
         </form>
       </div>
       <div class="social-icons">
-        <img src="assets/resources/fb.png">
-        <img src="assets/resources/twit.png">
-        <img src="assets/resources/gog.png">
+        <img src="../assets/resources/fb.png">
+        <img src="../assets/resources/twit.png">
+        <img src="../assets/resources/gog.png">
       </div>
     </div>
   </section>
@@ -161,9 +161,9 @@
     header.classList.toggle("sticky", window.scrollY > 0);
 
     if (window.scrollY == 0) {
-      document.getElementById("logo").src = "assets\\resources\\logo_white.png";
+      document.getElementById("logo").src = "..\\assets\\resources\\logo_white.png";
     } else {
-      document.getElementById("logo").src = "assets\\resources\\logo_black.png";
+      document.getElementById("logo").src = "..\\assets\\resources\\logo_black.png";
     }
   })
 </script>
@@ -187,7 +187,8 @@
 </script>
 
 <script>
-  const pswrdField = document.querySelector(".form input[type='password']");
+  const pswrdField = document.querySelector(".form_L input[type='password']",
+    ".form_S input[type='password']");
   toggleBtn = document.querySelector(".form-pas i");
 
   toggleBtn.onclick = () => {
@@ -217,7 +218,7 @@
   }
 </script>
 
-<script src="assets/javascript/signUp.js"></script>
-<script src="assets/javascript/logIn.js"></script>
+<script src="../assets/javascript/signUp.js"></script>
+<script src="../assets/javascript/logIn.js"></script>
 
 </html>

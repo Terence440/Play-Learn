@@ -9,14 +9,14 @@ form.onsubmit = (e) => {
 continueBtn.onclick = () => {
     console.log("Hello World");
     let xhr = new XMLHttpRequest(); // creating XML Object
-    xhr.open("POST", "assets/php/signUp.php", true);
+    xhr.open("POST", "../assets/php/signUp.php", true);
     xhr.onload = () => {
         console.log("run");
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let data = xhr.response;
                 if (data === "success") {
-                    location.href = "index.php";
+                    location.href = "../index.php";
                 } else {
                     errorText.style.display = "block";
                     errorText.textContent = data;

@@ -22,9 +22,9 @@ if (mysqli_num_rows($sql) > 0) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="assets/resources//icon.png">
+  <link rel="icon" href="assets/resources//icon.png"/>
 
-  <title>Play & Learn</title>
+  <title>Chat</title>
 
   <link rel="stylesheet" href="../assets/css/chatSystem.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/header.css">
