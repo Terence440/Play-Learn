@@ -9,7 +9,7 @@
   justify-content: left;
   align-items: left;
   flex-direction: column;
-  background: url(Forums.gif);
+  background: url(../resources/Forums.gif);
   background-size: cover;
 }
 

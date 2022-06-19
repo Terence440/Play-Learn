@@ -6,7 +6,7 @@
 .hero {
     padding-top: 100px;
     padding-bottom: 100px;
-    background-image: url("score.png");
+    background-image: url("../resources/score.png");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

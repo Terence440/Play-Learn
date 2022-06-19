@@ -209,7 +209,7 @@ if (mysqli_num_rows($sql) > 0) {
     <p class="copyright">Copyright © 2021. All Right Reserved</p>
   </footer>
   <!-- ======= Footer ======= -->
-  <script src='plugin.js'></script>
+  <script src='assets/javascript/plugin.js'></script>
 </body>
 
 <script type="text/javascript">

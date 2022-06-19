@@ -2,7 +2,7 @@
 
 session_start();
 include("assets/php/config.php");
-include("function.php");
+include("assets/php/function.php");
 
 $user_data = check_login($conn);
 $username = $user_data['user_name'];

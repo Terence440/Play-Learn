@@ -2,7 +2,7 @@
 
 session_start();
 include_once "assets/php/config.php";
-include("function.php");
+include("assets/php/function.php");
 
 if (!isset($_SESSION['unique_id'])) {
   header("Location: loginPage.php");
@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   </footer>
   <!-- ======= Footer ======= -->
 
-  <script src="ckeditor.js"></script>
+  <script src="assets/javascript/ckeditor.js"></script>
 
   <script>
     ClassicEditor
