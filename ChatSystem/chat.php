@@ -36,43 +36,43 @@ if (mysqli_num_rows($sql) > 0) {
 <body>
 
 
-  <!-- ======= Header ======= -->
-  <div id="wrapper_Header">
-    <nav>
-      <input type="checkbox" id="show-search">
-      <input type="checkbox" id="show-menu">
-      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
-      <div class="content">
-        <div class="logo"></div>
-        <a href="index.php">
-          <img id="logo" src="..\\assets\\resources\\logo_white.png" alt="logo">
-        </a>
-        <ul class="links">
-          <li><a href="..\\index.php">Home</a></li>
-          <li><a href="..\\funFact.php">Fun Fact</a></li>
-          <li><a href="..\\forum.php">Forum</a></li>
-          <li><a href="..\\quiz1.php">Quiz</a></li>
-          <li><a href="..\\contact_us.php">Contact Us</a></li>
-        </ul>
-      </div>
-      <?php if ($user_data['user_name'] != null) : ?>
-        <div class="dropdown_btnUser">
-          <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
-          <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
-          <button class="dropbtn_UserArrow" onclick="myFunction()">
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
-            <a href="../assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
-          </div>
-        </div>
-      <?php else : ?>
-        <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
-      <?php endif; ?>
-    </nav>
-  </div>
-  <!-- ======= Header ======= -->
-
+    <!-- ======= Header ======= -->
+    <div id="wrapper_Header">
+        <nav>
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+            <div class="content">
+                <div class="logo"></div>
+                <a href="../index.php">
+                    <img id="logo" src="../assets/resources/logo_white.png" alt="logo">
+                </a>
+                <ul class="links">
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../Fun_Fact/funFact.php">Fun Fact</a></li>
+                    <li><a href="../Forum/forum.php">Forum</a></li>
+                    <li><a href="../Quiz/quiz1.php">Quiz</a></li>
+                    <li><a href="../Contact_Us/contact_us.php">Contact Us</a></li>
+                </ul>
+            </div>
+            <?php if ($user_data['user_name'] != null) : ?>
+                <div class="dropdown_btnUser">
+                    <a href="../ChatSystem/chat.php"><i class='fas fa-comment'></i></a>
+                    <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
+                    <button class="dropbtn_UserArrow" onclick="myFunction()">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
+                        <a href="../assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+                        <!-- Log out not functioning -->
+                    </div>
+                </div>
+            <?php else : ?>
+                <a class="cta" href="../Log_In/loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+            <?php endif; ?>
+        </nav>
+    </div>
+    <!-- ======= Header ======= -->
   <div class="wrapper">
     <div class="row">
       <div class="column">

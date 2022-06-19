@@ -74,11 +74,6 @@ if (mysqli_num_rows($sql) > 0) {
     <section class="contact">
         <div class="content">
             <h2>Contact Us</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Blanditiis maxime ad exercitationem beatae vero,
-                esse ducimus non animi minus incidunt possimus iusto
-                aspernatur pariatur earum eaque alias architecto
-                facere eos?</p>
         </div>
         <div class="container">
             <div class="contactInfo">
@@ -86,21 +81,21 @@ if (mysqli_num_rows($sql) > 0) {
                     <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="text">
                         <h3>Address</h2>
-                            <p>4971 Sugar Camp Road, <br>Owatonna, Minnesota, <br>55060</p>
+                            <p>Faculty of Computer Science and Information Technology,<br>Universiti Malaya</p>
                     </div>
                 </div>
                 <div class="box">
                     <div class="icon"><i class="fa-solid fa-phone"></i></div>
                     <div class="text">
                         <h3>Phone</h2>
-                            <p>507-475-6094</p>
+                            <p>+60 153541764</p>
                     </div>
                 </div>
                 <div class="box">
                     <div class="icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="text">
                         <h3>Email</h2>
-                            <p>helloworld@gmail.com</p>
+                            <p>play_and_learn@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -142,11 +137,11 @@ if (mysqli_num_rows($sql) > 0) {
                 <div class="footer-col">
                     <h4>Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Fun Fact</a></li>
-                        <li><a href="#">Forum</a></li>
-                        <li><a href="#">Quiz</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="Fun_Fact/funFact.php">Fun Fact</a></li>
+                        <li><a href="Forum/forum.php">Forum</a></li>
+                        <li><a href="Quiz/quiz1.php">Quiz</a></li>
+                        <li><a href="Contact_Us/contact_us.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

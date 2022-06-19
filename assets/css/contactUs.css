@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(bg.jpg);
+    background: url(../resources/bg.jpg);
     background-size: cover;
 }
 

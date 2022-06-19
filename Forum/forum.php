@@ -113,54 +113,54 @@ if (mysqli_num_rows($sql) > 0) {
 
   </section>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container_footer">
-      <div class="row_footer">
-        <div class="footer-col">
-          <h4>company</h4>
-          <ul>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">our services</a></li>
-            <li><a href="#">privacy policy</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Fun Fact</a></li>
-            <li><a href="#">Forum</a></li>
-            <li><a href="#">Quiz</a></li>
-            <li><a href="#">About Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <ul>
-            <li><i class="fa-solid fa-location-dot"></i>Faculty of Computer Science and Information
-              Technology, Universiti
-              Malaya</li>
-            <li><i class="fa-solid fa-envelope"></i>play_and_learn@gmail.com</li>
-            <li><i class="fa-solid fa-phone"></i>+60 153541764</li>
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container_footer">
+            <div class="row_footer">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="Fun_Fact/funFact.php">Fun Fact</a></li>
+                        <li><a href="Forum/forum.php">Forum</a></li>
+                        <li><a href="Quiz/quiz1.php">Quiz</a></li>
+                        <li><a href="Contact_Us/contact_us.php">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i>Faculty of Computer Science and Information
+                            Technology, Universiti
+                            Malaya</li>
+                        <li><i class="fa-solid fa-envelope"></i>play_and_learn@gmail.com</li>
+                        <li><i class="fa-solid fa-phone"></i>+60 153541764</li>
 
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>follow us</h4>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-      </div>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
 
-    </div>
-    <p class="copyright">Copyright © 2021. All Right Reserved</p>
-  </footer>
-  <!-- ======= Footer ======= -->
+        </div>
+        <p class="copyright">Copyright © 2021. All Right Reserved</p>
+    </footer>
+    <!-- ======= Footer ======= -->
 
   <script src='../assets/javascript/plugin.js'></script>
 </body>

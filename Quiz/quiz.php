@@ -192,11 +192,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="footer-col">
                     <h4>Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Fun Fact</a></li>
-                        <li><a href="#">Forum</a></li>
-                        <li><a href="#">Quiz</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="Fun_Fact/funFact.php">Fun Fact</a></li>
+                        <li><a href="Forum/forum.php">Forum</a></li>
+                        <li><a href="Quiz/quiz1.php">Quiz</a></li>
+                        <li><a href="Contact_Us/contact_us.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
