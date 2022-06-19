@@ -2,7 +2,7 @@ document.getElementById('start_btn').addEventListener('click', function () {
     document.querySelector('.modal-bg').style.display = 'none';
     document.querySelector('#quiz').style.display = 'flex';
     document.querySelector('#quiz').style.display = 'flex';
-    document.querySelector('#wrapper_Header').style.display = 'flex';
+    // document.querySelector('#wrapper_Header').style.display = 'flex';
     document.querySelector('#footer').style.display = 'flex';
     document.querySelector('.time-bg').style.display = 'flex';
 })

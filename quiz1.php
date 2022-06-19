@@ -52,11 +52,16 @@ if (mysqli_num_rows($sql) > 0) {
                 </ul>
             </div>
             <?php if ($user_data['user_name'] != null) : ?>
-                <div>
-                    <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
-                    <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+                <div class="dropdown_btnUser">
+                    <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
+                    <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
+                    <button class="dropbtn_UserArrow" onclick="myFunction()">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
+                        <a href="assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+                    </div>
                 </div>
-                <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
             <?php else : ?>
                 <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
             <?php endif; ?>
@@ -220,6 +225,22 @@ if (mysqli_num_rows($sql) > 0) {
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
         setTimeout(showSlides, 3000); // Change image every 5 seconds
+    }
+</script>
+
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown_btnUser").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+        if (!e.target.matches('.dropbtn_UserArrow')) {
+            var myDropdown = document.getElementsByClassName("dropbtn_UserArrow");
+            if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+            }
+        }
     }
 </script>
 

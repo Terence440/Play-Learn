@@ -37,6 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         echo "Please enter some valid information.";
     }
+
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+    if (mysqli_num_rows($sql) > 0) {
+        $user_data = mysqli_fetch_assoc($sql);
+    }
 }
 
 ?>
@@ -81,11 +86,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </ul>
             </div>
             <?php if ($user_data['user_name'] != null) : ?>
-                <div>
-                    <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
-                    <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+                <div class="dropdown_btnUser">
+                    <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
+                    <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
+                    <button class="dropbtn_UserArrow" onclick="myFunction()">
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
+                        <a href="assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+                    </div>
                 </div>
-                <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
             <?php else : ?>
                 <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
             <?php endif; ?>
@@ -93,75 +103,77 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
     <!-- ======= Header ======= -->
 
-    <div class="modal-bg">
-        <div class="modal-content">
-            <h1 style="margin-top: 35px; margin-bottom: 40px; font-size: 40px;">Instruction</h1>
-            <p>1. The quiz contains only two questions.<br>2. You have one minute to answer all the questions.<br>3. One question cointains one mark.<br>4. No mark given if you did not click submit.</p>
-            <a href="#" id="start_btn" class="btn_start" onclick="startQuiz()">Start</a>
+    <section>
+        <div class="modal-bg">
+            <div class="modal-content">
+                <h1 style="margin-top: 35px; margin-bottom: 40px; font-size: 40px;">Instruction</h1>
+                <p>1. The quiz contains only two questions.<br>2. You have one minute to answer all the questions.<br>3. One question cointains one mark.<br>4. No mark given if you did not click submit.</p>
+                <a href="#" id="start_btn" class="btn_start" onclick="startQuiz()">Start</a>
+            </div>
         </div>
-    </div>
 
-    <div class="time-bg">
-        <div class="time-content">
-            <p id="countdown">1:00</p>
+        <div class="time-bg">
+            <div class="time-content">
+                <p id="countdown">1:00</p>
+            </div>
         </div>
-    </div>
 
-    <div id="quiz">
-        <form id="form" method="post">
-            <div class="wrapper1">
+        <div id="quiz">
+            <form id="form" method="post">
+                <div class="wrapper1">
 
-                <p class="question">1. Which relation is NOT a function?</p>
-                <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
-                <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
-                <input type="radio" name="q1" id="option-3" value="{(3,-2), (5,-6), (7,7), (8,8)}">
-                <input type="radio" name="q1" id="option-4" value="{(1,-5), (-1,6), (1,5), (6,-3)}">
-                <label for="option-1" class="option option-1">
-                    <div class="dot"></div>
-                    <span>{(1,-5), (3,1), (-5,4), (4,-2)}</span>
-                </label>
-                <label for="option-2" class="option option-2">
-                    <div class="dot"></div>
-                    <span>{(2,7), (3,7), (4,7), (5,8)}</span>
-                </label>
-                <label for="option-3" class="option option-3">
-                    <div class="dot"></div>
-                    <span>{(3,-2), (5,-6), (7,7), (8,8)}</span>
-                </label>
-                <label for="option-4" class="option option-4">
-                    <div class="dot"></div>
-                    <span>{(1,-5), (-1,6), (1,5), (6,-3)}</span>
-                </label>
-            </div>
+                    <p class="question">1. Which relation is NOT a function?</p>
+                    <input type="radio" name="q1" id="option-1" value="{(1,-5), (3,1), (-5,4), (4,-2)}">
+                    <input type="radio" name="q1" id="option-2" value="{(2,7), (3,7), (4,7), (5,8)}">
+                    <input type="radio" name="q1" id="option-3" value="{(3,-2), (5,-6), (7,7), (8,8)}">
+                    <input type="radio" name="q1" id="option-4" value="{(1,-5), (-1,6), (1,5), (6,-3)}">
+                    <label for="option-1" class="option option-1">
+                        <div class="dot"></div>
+                        <span>{(1,-5), (3,1), (-5,4), (4,-2)}</span>
+                    </label>
+                    <label for="option-2" class="option option-2">
+                        <div class="dot"></div>
+                        <span>{(2,7), (3,7), (4,7), (5,8)}</span>
+                    </label>
+                    <label for="option-3" class="option option-3">
+                        <div class="dot"></div>
+                        <span>{(3,-2), (5,-6), (7,7), (8,8)}</span>
+                    </label>
+                    <label for="option-4" class="option option-4">
+                        <div class="dot"></div>
+                        <span>{(1,-5), (-1,6), (1,5), (6,-3)}</span>
+                    </label>
+                </div>
 
-            <div class="wrapper2">
-                <p class="question">2. All of the x values or inputs are called what?</p>
-                <input type="radio" name="q2" id="option-5" value="Domain">
-                <input type="radio" name="q2" id="option-6" value="Function">
-                <input type="radio" name="q2" id="option-7" value="Range">
-                <input type="radio" name="q2" id="option-8" value="Relation">
-                <label for="option-5" class="option option-5">
-                    <div class="dot"></div>
-                    <span>Domain</span>
-                </label>
-                <label for="option-6" class="option option-6">
-                    <div class="dot"></div>
-                    <span>Function</span>
-                </label>
-                <label for="option-7" class="option option-7">
-                    <div class="dot"></div>
-                    <span>Range</span>
-                </label>
-                <label for="option-8" class="option option-8">
-                    <div class="dot"></div>
-                    <span>Relation</span>
-                </label>
-            </div>
-            <div class="submit">
-                <input type="submit" id="btn_submit" class="btn_submit" value="Submit">
-            </div>
-        </form>
-    </div>
+                <div class="wrapper2">
+                    <p class="question">2. All of the x values or inputs are called what?</p>
+                    <input type="radio" name="q2" id="option-5" value="Domain">
+                    <input type="radio" name="q2" id="option-6" value="Function">
+                    <input type="radio" name="q2" id="option-7" value="Range">
+                    <input type="radio" name="q2" id="option-8" value="Relation">
+                    <label for="option-5" class="option option-5">
+                        <div class="dot"></div>
+                        <span>Domain</span>
+                    </label>
+                    <label for="option-6" class="option option-6">
+                        <div class="dot"></div>
+                        <span>Function</span>
+                    </label>
+                    <label for="option-7" class="option option-7">
+                        <div class="dot"></div>
+                        <span>Range</span>
+                    </label>
+                    <label for="option-8" class="option option-8">
+                        <div class="dot"></div>
+                        <span>Relation</span>
+                    </label>
+                </div>
+                <div class="submit">
+                    <input type="submit" id="btn_submit" class="btn_submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </section>
 
 
     <!-- ======= Footer ======= -->
@@ -215,6 +227,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 </body>
 
+<script type="text/javascript">
+    window.addEventListener("scroll", function() {
+        var header = document.getElementById("wrapper_Header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+
+        if (window.scrollY == 0) {
+            document.getElementById("logo").src = "assets\\resources\\logo_white.png";
+        } else {
+            document.getElementById("logo").src = "assets\\resources\\logo_black.png";
+        }
+    })
+</script>
+
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init();
@@ -222,13 +247,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <script src="assets/javascript/quiz2.js"></script>
 
-<script type="text/javascript">
-    window.addEventListener("scroll", function() {
-        var header = document.querySelector("header");
-        header.classList.toggle("sticky", window.scrollY > 0);
-    })
-</script>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown_btnUser").classList.toggle("show");
+    }
 
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+        if (!e.target.matches('.dropbtn_UserArrow')) {
+            var myDropdown = document.getElementsByClassName("dropbtn_UserArrow");
+            if (myDropdown.classList.contains('show')) {
+                myDropdown.classList.remove('show');
+            }
+        }
+    }
 </script>
 
 </html>

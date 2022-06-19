@@ -60,18 +60,24 @@ if (mysqli_num_rows($sql) > 0) {
         </ul>
       </div>
       <?php if ($user_data['user_name'] != null) : ?>
-        <div>
-          <a class="cta" href="ChatSystem\chat.php"><i class='fas fa-comment' style='font-size:15px;color:#CBFBFF; margin-right:10px'></i></a>
-          <?php echo "<font color='#CBFBFF' size='4'>" . $user_data['user_name'] . "</font>"; ?>
+        <div class="dropdown_btnUser">
+          <a href="ChatSystem\chat.php"><i class='fas fa-comment'></i></a>
+          <?php echo "<font>" . $user_data['user_name'] . "</font>"; ?>
+          <button class="dropbtn_UserArrow" onclick="myFunction()">
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content_btnUser" id="myDropdown_btnUser">
+            <a href="assets/php/logout.php?logout_id=<?php echo $user_data['unique_id'] ?>">Log Out</a>
+            <!-- Log out not functioning -->
+          </div>
         </div>
-        <a class="cta" href="logout.php"><button id="btn_SignIn" style="height:35px;width:120px;border-radius:20px">Log Out</button></a>
       <?php else : ?>
         <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
       <?php endif; ?>
     </nav>
   </div>
   <!-- ======= Header ======= -->
-  
+
   <!-- ======= Content ======= -->
   <section id="content_Home">
     <div class="container_Home">
@@ -100,7 +106,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <h2 class="name">Forum</h2>
                 <p class="description">This is a student space for the students to have discussion among each other.</p>
 
-                <a href="forum.html">
+                <a href="forum.php">
                   <button class="button">View More</button>
                 </a>
 
@@ -120,7 +126,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <p class="description">Stop right there! You're about to learn some seriously interesting facts about science,
                   history, and pop culture that will blow your mind.</p>
 
-                <a href="funFact.html">
+                <a href="funFact.php">
                   <button class="button">View More</button>
                 </a>
 
@@ -139,7 +145,7 @@ if (mysqli_num_rows($sql) > 0) {
                 <h2 class="name">Quiz</h2>
                 <p class="description">Use this funciton to learn anything, anywhere. You can study on your own or engage in group quizzes remotely.</p>
 
-                <a href="quiz.php">
+                <a href="quiz1.php">
                   <button class="button">View More</button>
                 </a>
 
@@ -385,6 +391,22 @@ if (mysqli_num_rows($sql) > 0) {
       }
     },
   });
+</script>
+
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown_btnUser").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn_UserArrow')) {
+      var myDropdown = document.getElementsByClassName("dropbtn_UserArrow");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+    }
+  }
 </script>
 
 </html>

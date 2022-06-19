@@ -38,7 +38,7 @@
           <li><a href="contact_us.php">Contact Us</a></li>
         </ul>
       </div>
-      <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a>
+      <!-- <a class="cta" href="loginPage.php"><button id="btn_SignIn">Sign In</button></a> -->
     </nav>
   </div>
   <!-- ======= Header ======= -->
@@ -197,6 +197,22 @@
     } else {
       pswrdField.type = "password";
       toggleBtn.classList.remove("active");
+    }
+  }
+</script>
+
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown_btnUser").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn_UserArrow')) {
+      var myDropdown = document.getElementsByClassName("dropbtn_UserArrow");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
     }
   }
 </script>

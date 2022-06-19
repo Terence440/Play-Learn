@@ -67,6 +67,67 @@ nav .content .links {
   color: #0088a9;
 }
 
+/*  */
+
+.dropdown_btnUser {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown_btnUser a .fas{
+  font-size: 15px;
+  color: #CBFBFF;
+  margin-right: 10px;
+}
+
+.dropdown_btnUser font {
+  color: #CBFBFF;
+  size: 4;
+}
+
+.dropdown_btnUser .dropbtn_UserArrow {
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #CBFBFF;
+  padding: 0px 5px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content_btnUser {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-left: -70px;
+  z-index: 1;
+}
+
+.dropdown-content_btnUser a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content_btnUser a:hover {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.show {
+  display: block;
+}
+
+/*  */
+
 #wrapper_Header .menu-icon {
   color: #fff;
   font-size: 18px;
@@ -151,8 +212,11 @@ nav .content .links {
   transition: 0.6s;
 }
 
-#wrapper_Header.sticky .content .links li a{
-  color: black;
+#wrapper_Header.sticky .content .links li a,
+#wrapper_Header.sticky .dropdown_btnUser a .fas,
+#wrapper_Header.sticky .dropdown_btnUser font,
+#wrapper_Header.sticky .dropdown_btnUser .dropbtn_UserArrow{
+  color: #171c24;
 }
 
 /* #wrapper_Header.sticky .content .logo{
@@ -245,6 +309,17 @@ nav .content .links {
     font-size: 18px;
     line-height: 30px;
     border-radius: 5px !important;
+  }
+
+  #wrapper_Header .User a .buttonUser font {
+    color: #CBFBFF;
+    font-size: 4;
+  }
+
+  #wrapper_Header .fas {
+    font-size: 15px;
+    color: #CBFBFF;
+    margin-right: 10px;
   }
 
   #btn_SignIn {
